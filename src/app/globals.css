@@ -4,32 +4,150 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* text violet */
+.text-v-100 {
+  color: #f3f5ff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.text-v-200 {
+  color: #e9edfe;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.text-v-300 {
+  color: #d6ddfe;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.text-v-400 {
+  color: #b5c2fd;
+}
+
+.text-v-500 {
+  color: #3a5df8;
+}
+
+.text-v-600 {
+  color: #1738cf;
+}
+
+.text-v-700 {
+  color: #0a26a3;
+}
+
+.text-v-800 {
+  color: #021464;
+}
+
+.text-v-900 {
+  color: #010c3c;
+}
+
+/* bg violet */
+.bg-v-100 {
+  background: #f3f5ff;
+}
+
+.bg-v-200 {
+  background: #e9edfe;
+}
+
+.bg-v-300 {
+  background: #d6ddfe;
+}
+
+.bg-v-400 {
+  background: #b5c2fd;
+}
+
+.bg-v-500 {
+  background: #3a5df8;
+}
+
+.bg-v-600 {
+  background: #1738cf;
+}
+
+.bg-v-700 {
+  background: #0a26a3;
+}
+
+.bg-v-800 {
+  background: #021464;
+}
+
+.bg-v-900 {
+  background: #010c3c;
+}
+
+/* text neutral */
+.text-n-100 {
+  color: #ffffff;
+}
+
+.text-n-200 {
+  color: #f8fafc;
+}
+
+.text-n-300 {
+  color: #f1f5f9;
+}
+
+.text-n-400 {
+  color: #cbd5e1;
+}
+
+.text-n-500 {
+  color: #94a3b8;
+}
+
+/* .text-n-600 {
+  color: #1738cf;
+} */
+
+.text-n-700 {
+  color: #475569;
+}
+
+.text-n-800 {
+  color: #0f172a;
+}
+
+.text-n-900 {
+  color: #000000;
+}
+
+/* bg neutral */
+.bg-n-100 {
+  background: #ffffff;
+}
+
+.bg-n-200 {
+  background: #f8fafc;
+}
+
+.bg-n-300 {
+  background: #f1f5f9;
+}
+
+.bg-n-400 {
+  background: #cbd5e1;
+}
+
+.bg-n-500 {
+  background: #94a3b8;
+}
+
+/* .bg-n-600 {
+  background: #1738cf;
+} */
+
+.bg-n-700 {
+  background: #475569;
+}
+
+.bg-n-800 {
+  background: #0f172a;
+}
+
+.bg-n-900 {
+  background: #000000;
 }
