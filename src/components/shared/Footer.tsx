@@ -50,7 +50,7 @@ function CTA() {
 
 export default function Footer() {
   return (
-    <div className="pt-[120px] bg-n-200">
+    <div className="pt-[120px] bg-n-200" id="footer">
       <div className="h-[380px] relative">
         <CTA />
       </div>

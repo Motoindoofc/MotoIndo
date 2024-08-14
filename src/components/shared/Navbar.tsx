@@ -1,16 +1,17 @@
 /** @format */
 "use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
-import CallIcon from '@/assets/icons/call-icon.svg';
-import MotoindoLogo from '@/assets/logo/motoindo-nav-logo.png';
+import CallIcon from "@/assets/icons/call-icon.svg";
+import MotoindoLogo from "@/assets/logo/motoindo-nav-logo.png";
 
-import Button from './Button';
+import Button from "./Button";
 
 export default function Navbar() {
+  const router = useRouter();
   const pathname = usePathname();
 
   const routes = [
@@ -44,7 +45,9 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
-        <Button customClass="gap-3">
+        <Button
+          customClass="gap-3"
+          onClick={() => router.push(`${pathname}#footer`)}>
           <Image src={CallIcon} alt="call-icon" /> Hubungi Kami
         </Button>
       </div>

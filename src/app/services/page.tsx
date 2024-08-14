@@ -1,15 +1,12 @@
 /** @format */
 
-import Image from 'next/image';
+import Image from "next/image";
 
-import Achievement from '@/components/shared/Achievement';
-import ArticleList from '@/components/shared/ArticleList';
-import Footer from '@/components/shared/Footer';
-import Navbar from '@/components/shared/Navbar';
-import {
-  serviceDetails,
-  serviceLists,
-} from '@/data';
+import Achievement from "@/components/shared/Achievement";
+import Footer from "@/components/shared/Footer";
+import Navbar from "@/components/shared/Navbar";
+import ServiceArticle from "@/components/ui/ServiceArticle";
+import { serviceDetails, serviceLists } from "@/data";
 
 export default function Services() {
   return (
@@ -66,9 +63,7 @@ export default function Services() {
           ))}
         </div>
       </div>
-      <div className="outer-wrapper">
-        <ArticleList isFull />
-      </div>
+      <ServiceArticle />
       <Footer />
     </section>
   );

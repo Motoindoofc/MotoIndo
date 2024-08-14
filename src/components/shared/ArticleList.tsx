@@ -1,9 +1,11 @@
 /** @format */
 
-import ArticleImg from '@/assets/images/article-1-img.jpg';
+import Link from "next/link";
 
-import Button from './Button';
-import CardArticle from './CardArticle';
+import ArticleImg from "@/assets/images/article-1-img.jpg";
+
+import Button from "./Button";
+import CardArticle from "./CardArticle";
 
 interface IArticleList {
   isFull?: boolean;
@@ -38,7 +40,11 @@ export default function ArticleList({ isFull = false }: IArticleList) {
           <CardArticle key={i} data={datum} />
         ))}
       </div>
-      {!isFull && <Button customClass="mt-[80px]">Lihat Lebih Banyak</Button>}
+      {!isFull && (
+        <Link href="/services?section=service-article">
+          <Button customClass="mt-[80px]">Lihat Lebih Banyak</Button>
+        </Link>
+      )}
     </section>
   );
 }
