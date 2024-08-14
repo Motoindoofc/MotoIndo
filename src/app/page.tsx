@@ -17,7 +17,6 @@ function HeroBackgroundVideo() {
   return (
     <video autoPlay muted loop>
       <source src="/videos/hero-animation-map.mp4" type="video/mp4" />
-      Your browser doesn't support video tag
     </video>
   );
 }
@@ -26,7 +25,6 @@ function IntegratedBackgroundVideo() {
   return (
     <video autoPlay muted loop className="w-[538px] aspect-square">
       <source src="/videos/integrated-animation.mp4" type="video/mp4" />
-      Your browser doesn't support video tag
     </video>
   );
 }

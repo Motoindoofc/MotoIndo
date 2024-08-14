@@ -17,6 +17,7 @@ export default function ProductDetailImage() {
       <div className="flex gap-3 items-stretch justify-between">
         {[...Array(5)].map((_, index) => (
           <Image
+            key={index}
             src={ProductImg}
             alt="product-img"
             className="w-full h-full object-center object-cover overflow-hidden rounded-lg"
