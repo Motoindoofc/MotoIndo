@@ -4,77 +4,101 @@
 @tailwind components;
 @tailwind utilities;
 
-/* text violet */
-.text-v-100 {
+.outer-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+}
+
+.inner-wrapper {
+  width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bg-b-gradient {
+  background: linear-gradient(92deg, #1738ce 0%, #021464 100.59%);
+}
+
+.bg-b-gradient-2 {
+  background: linear-gradient(92deg, #021464 0%, #1738ce 100.59%);
+}
+
+/* text blue */
+.text-b-100 {
   color: #f3f5ff;
 }
 
-.text-v-200 {
+.text-b-200 {
   color: #e9edfe;
 }
 
-.text-v-300 {
+.text-b-300 {
   color: #d6ddfe;
 }
 
-.text-v-400 {
+.text-b-400 {
   color: #b5c2fd;
 }
 
-.text-v-500 {
+.text-b-500 {
   color: #3a5df8;
 }
 
-.text-v-600 {
+.text-b-600 {
   color: #1738cf;
 }
 
-.text-v-700 {
+.text-b-700 {
   color: #0a26a3;
 }
 
-.text-v-800 {
+.text-b-800 {
   color: #021464;
 }
 
-.text-v-900 {
+.text-b-900 {
   color: #010c3c;
 }
 
-/* bg violet */
-.bg-v-100 {
+/* bg blue */
+.bg-b-100 {
   background: #f3f5ff;
 }
 
-.bg-v-200 {
+.bg-b-200 {
   background: #e9edfe;
 }
 
-.bg-v-300 {
+.bg-b-300 {
   background: #d6ddfe;
 }
 
-.bg-v-400 {
+.bg-b-400 {
   background: #b5c2fd;
 }
 
-.bg-v-500 {
+.bg-b-500 {
   background: #3a5df8;
 }
 
-.bg-v-600 {
+.bg-b-600 {
   background: #1738cf;
 }
 
-.bg-v-700 {
+.bg-b-700 {
   background: #0a26a3;
 }
 
-.bg-v-800 {
+.bg-b-800 {
   background: #021464;
 }
 
-.bg-v-900 {
+.bg-b-900 {
   background: #010c3c;
 }
 
