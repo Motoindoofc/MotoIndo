@@ -1,13 +1,13 @@
 /** @format */
 
-import Image from 'next/image';
+import Image from "next/image";
 
-import EmailIcon from '@/assets/icons/email-icon.svg';
-import WAIcon from '@/assets/icons/wa-icon.svg';
-import CTAImage from '@/assets/images/footer-img.png';
-import MotoIndo from '@/assets/logo/motoindo-footer-logo.svg';
+import EmailIcon from "@/assets/icons/email-icon.svg";
+import WAIcon from "@/assets/icons/wa-icon.svg";
+import CTAImage from "@/assets/images/footer-img.png";
+import MotoIndo from "@/assets/logo/motoindo-footer-logo.svg";
 
-import Achievement from './Achievement';
+import Achievement from "./Achievement";
 
 function CTA() {
   return (
@@ -64,19 +64,17 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="outer-wrapper">
-        <div className="inner-wrapper">
-          <div className="w-full h-[400px] flex flex-col justify-between bg-n-100 py-[64px] px-[80px]">
-            <div className="flex flex-col gap-[40px]">
-              <Image src={MotoIndo} alt="footer-logo" />
-              <p className="text-n-800 text-[1.5rem]">
-                Solusi Integrasi Keamanan dan Radio Telekomunikasi
-              </p>
-            </div>
-            <p className="text-n-800 text-[1rem]">
-              Copyright © 2024 All rights reserved
+      <div className="outer-wrapper h-[400px] flex justify-center bg-n-100 py-[64px] px-[80px]">
+        <div className="inner-wrapper h-full !items-start !justify-between">
+          <div className="flex flex-col gap-[40px]">
+            <Image src={MotoIndo} alt="footer-logo" />
+            <p className="text-n-800 text-[1.5rem]">
+              Solusi Integrasi Keamanan dan Radio Telekomunikasi
             </p>
           </div>
+          <p className="text-n-800 text-[1rem]">
+            Copyright © 2024 All rights reserved
+          </p>
         </div>
       </div>
     </div>
