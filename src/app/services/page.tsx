@@ -7,6 +7,7 @@ import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
 import ServiceArticle from "@/components/ui/ServiceArticle";
 import { serviceDetails, serviceLists } from "@/data";
+import { Suspense } from "react";
 
 export default function Services() {
   return (
@@ -35,7 +36,8 @@ export default function Services() {
           {serviceLists.map((service, i) => (
             <div
               key={i}
-              className="mt-[92px] flex flex-col items-center gap-10">
+              className="mt-[92px] flex flex-col items-center gap-10"
+            >
               <p className="flex gap-5 text-n-900 font-semibold text-[2rem]">
                 <Image src={service.image} alt={service.title} />
                 {service.title}
@@ -63,7 +65,9 @@ export default function Services() {
           ))}
         </div>
       </div>
-      <ServiceArticle />
+      <Suspense fallback={<div>Loading...</div>}>
+        <ServiceArticle />
+      </Suspense>
       <Footer />
     </section>
   );
