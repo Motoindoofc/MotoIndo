@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 
-import ArticleImg from "@/assets/images/article-1-img.jpg";
+import sanityFetch from "@/sanity/client";
+import { SanityDocument } from "@sanity/client";
 
 import Button from "./Button";
 import CardArticle from "./CardArticle";
@@ -11,21 +12,26 @@ interface IArticleList {
   isFull?: boolean;
 }
 
-export default function ArticleList({ isFull = false }: IArticleList) {
-  const data = [
-    {
-      image: ArticleImg,
-      title: "Instalasi Radio Repeater & Pembaruan sistem",
-    },
-    {
-      image: ArticleImg,
-      title: "Instalasi Rig-Base pada truk pertambang",
-    },
-    {
-      image: ArticleImg,
-      title: "HT dengan keamanan ekstra untuk\npertambangan dan kilang minyak",
-    },
-  ];
+const EVENTS_QUERY = `*[_type == "article"]{_id, name, title, slug, mainImage}|order(date desc)`;
+
+export default async function ArticleList({ isFull = false }: IArticleList) {
+  const articles = await sanityFetch<SanityDocument[]>({ query: EVENTS_QUERY });
+  console.log("🚀 ~ ArticleList ~ articles:", articles);
+
+  // const data = [
+  //   {
+  //     image: ArticleImg,
+  //     title: "Instalasi Radio Repeater & Pembaruan sistem",
+  //   },
+  //   {
+  //     image: ArticleImg,
+  //     title: "Instalasi Rig-Base pada truk pertambang",
+  //   },
+  //   {
+  //     image: ArticleImg,
+  //     title: "HT dengan keamanan ekstra untuk\npertambangan dan kilang minyak",
+  //   },
+  // ];
 
   return (
     <section className="inner-wrapper mt-[160px]">
@@ -36,8 +42,8 @@ export default function ArticleList({ isFull = false }: IArticleList) {
         Lihat proyek terbaru kami
       </p>
       <div className="flex gap-[64px]">
-        {data.map((datum, i) => (
-          <CardArticle key={i} data={datum} />
+        {articles.map((article) => (
+          <CardArticle key={article._id} data={article} />
         ))}
       </div>
       {!isFull && (
