@@ -1,47 +1,79 @@
 /** @format */
 "use client";
 
-import { useState } from 'react';
+import { Suspense, useState } from "react";
 
-import ProductBackground from '@/assets/images/product-hero-img.jpg';
-import Footer from '@/components/shared/Footer';
-import Navbar from '@/components/shared/Navbar';
-import ProductCard from '@/components/ui/ProductCard';
+import ProductBackground from "@/assets/images/product-hero-img.jpg";
+import Footer from "@/components/shared/Footer";
+import Navbar from "@/components/shared/Navbar";
+import ProductCard from "@/components/ui/ProductCard";
+import sanityFetch from "@/sanity/client";
+import { SanityDocument } from "@sanity/client";
 
 interface TTypes {
-  id: number;
+  id: string;
   name: string;
+}
+
+interface TCategory {
+  category: string;
+}
+
+const PRODUCTS_QUERY = `*[_type == "product"]{_id, title, slug,  category, "image":image.asset->url}|order(date desc)`;
+
+async function ProductList({ category }: TCategory) {
+  const products = await sanityFetch<SanityDocument[]>({
+    query: PRODUCTS_QUERY,
+    params: { category },
+  });
+
+  console.log("🚀 ~ ProductList ~ products:", products);
+  return (
+    <div className="inner-wrapper flex items-center justify-center">
+      <div className="w-[1216px] max-w-full flex flex-wrap gap-8">
+        {products.length === 0 ? (
+          <div>No product yet</div>
+        ) : (
+          <div className="flex gap-16">
+            {products.map((product) => (
+              <ProductCard key={product._id} data={product} />
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default function Products() {
   const types: TTypes[] = [
     {
-      id: 1,
+      id: "all",
       name: "semua produk",
     },
     {
-      id: 2,
+      id: "handy-talky",
       name: "Handy Talky (HT)",
     },
     {
-      id: 3,
+      id: "rigbase",
       name: "Rig-Base",
     },
     {
-      id: 4,
+      id: "repeater",
       name: "Repeater",
     },
     {
-      id: 5,
+      id: "aksesoris",
       name: "aksesoris",
     },
   ];
 
-  const [selectedType, setSelectedType] = useState(types[0]);
+  const [selectedCategory, setSelectedCategory] = useState(types[0]);
 
-  const onSelectType = (typeId: number) => {
+  const onSelectType = (typeId: string) => {
     const newType = types.find((type) => type.id === typeId);
-    setSelectedType(newType as TTypes);
+    setSelectedCategory(newType as TTypes);
   };
 
   return (
@@ -79,7 +111,7 @@ export default function Products() {
             <div
               key={i}
               className={`cursor-pointer h-[52px] py-[16px] px-[24px] rounded-lg font-semibold uppercase ${
-                selectedType.id === type.id
+                selectedCategory.id === type.id
                   ? "bg-b-500 text-n-100"
                   : "text-n-700"
               }`}
@@ -90,16 +122,9 @@ export default function Products() {
         </div>
       </div>
       <div className="outer-wrapper pt-[64px]">
-        <div className="inner-wrapper flex items-center justify-center">
-          <div className="w-[1216px] max-w-full flex flex-wrap gap-8">
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-          </div>
-        </div>
+        <Suspense fallback={<div>Loading...</div>}>
+          <ProductList category={selectedCategory.id} />
+        </Suspense>
       </div>
       <Footer />
     </section>
