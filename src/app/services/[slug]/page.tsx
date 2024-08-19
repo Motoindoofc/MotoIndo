@@ -3,6 +3,7 @@
 import { Suspense } from "react";
 
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
 import sanityFetch from "@/sanity/client";
 import Footer from "@/shared/Footer";
@@ -46,6 +47,10 @@ async function Article({ slug }: TSlug) {
     query: ARTICLE_QUERY,
     params: { slug },
   });
+
+  if (!article) {
+    return redirect("/services");
+  }
 
   const date = new Date(article.publishedAt);
 

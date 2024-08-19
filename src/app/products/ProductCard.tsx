@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function ProductCard({ data }: any) {
   return (
     <Link
-      href={`/products/${data.slug.current}`}
+      href={`/product/${data.slug.current}`}
       className="cursor-pointer rounded-2xl w-[280px] h-[320px] bg-n-100 overflow-hidden"
       style={{
         boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.06)",
@@ -15,7 +15,7 @@ export default function ProductCard({ data }: any) {
         className="w-full h-[200px] object-cover"
         width={400}
         height={400}
-        src={data.image}
+        src={data.image[0]}
         alt="product-img"
       />
       <div className="py-[24px] px-[16px] flex flex-col gap-[12px]">

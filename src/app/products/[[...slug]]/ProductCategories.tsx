@@ -16,17 +16,17 @@ interface TRoutes {
 }
 
 interface TCategory {
-  category: string;
+  category: TRoutes;
 }
 
 const CATEGORIES_QUERY = `*[_type == "category"]{_id, value, name, date}|order(date asc)`;
 
-const PRODUCTS_QUERY = `*[_type == "product" && ($category == "" || category._ref == $category)]{_id, title, slug, category, "image":image.asset->url}|order(date desc)`;
+const PRODUCTS_QUERY = `*[_type == "product" && ($category == "" || category._ref == $category)]{_id, title, slug, category, preview, "image":image[].asset->url}|order(date desc)`;
 
 async function ProductList({ category }: TCategory) {
   const products = await sanityFetch<SanityDocument[]>({
     query: PRODUCTS_QUERY,
-    params: { category: category },
+    params: { category: category.id },
   });
 
   return (
@@ -70,9 +70,16 @@ export default async function ProductCategories({
     ...formattedCategories,
   ];
 
-  const currentFormattedCategory: TRoutes = categories.find(
+  let currentFormattedCategory: TRoutes = categories.find(
     (category) => category.href.replace("/", "") === currentCategory
   ) as TRoutes;
+
+  if (!currentFormattedCategory) {
+    currentCategory = "";
+    currentFormattedCategory = categories.find(
+      (category) => category.href.replace("/", "") === ""
+    ) as TRoutes;
+  }
 
   return (
     <>
@@ -99,7 +106,7 @@ export default async function ProductCategories({
       </div>
       <div className="outer-wrapper pt-[64px]">
         <Suspense fallback={<div>Loading...</div>}>
-          <ProductList category={currentFormattedCategory.id} />
+          <ProductList category={currentFormattedCategory} />
         </Suspense>
       </div>
     </>

@@ -8,6 +8,14 @@
   scroll-behavior: smooth;
 }
 
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
 .outer-wrapper {
   width: 100%;
   display: flex;
