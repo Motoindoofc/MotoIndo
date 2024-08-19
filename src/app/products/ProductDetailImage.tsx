@@ -31,23 +31,25 @@ export default function ProductDetailImage({
         alt="product-img"
         className="w-full h-[560px] object-cover object rounded-3xl"
       />
-      <div className="flex gap-3 items-stretch justify-between ">
-        {formattedImages.map((image) => (
-          <Image
-            key={image.id}
-            src={image.imageURL}
-            width={400}
-            height={400}
-            onClick={() => onClickGallery(image.id)}
-            alt="product-img"
-            className={`cursor-pointer w-full object-center object-cover overflow-hidden rounded-lg border ${
-              selectedImage.id === image.id
-                ? " border-blue-400 p-1"
-                : "border-n-400"
-            }`}
-          />
-        ))}
-      </div>
+      {formattedImages.length > 1 && (
+        <div className="h-[200px] flex gap-3 items-stretch justify-between">
+          {formattedImages.map((image) => (
+            <Image
+              key={image.id}
+              src={image.imageURL}
+              width={400}
+              height={400}
+              onClick={() => onClickGallery(image.id)}
+              alt="product-img"
+              className={`cursor-pointer w-full object-center object-cover overflow-hidden rounded-lg border ${
+                selectedImage.id === image.id
+                  ? " border-blue-400 p-1"
+                  : "border-n-400"
+              }`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

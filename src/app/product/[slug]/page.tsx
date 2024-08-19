@@ -22,7 +22,6 @@ interface IProductDetail {
 const PRODUCT_QUERY = `*[_type == "product" && slug.current == $slug][0]{_id,  title, date, body, "image":image[].asset->url, category->{value}}`;
 
 async function Product({ slug }: { slug: string }) {
-  console.log("🚀 ~ Product ~ slug:", slug);
   const product: any = await sanityFetch<SanityDocument[]>({
     query: PRODUCT_QUERY,
     params: { slug },

@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 import sanityFetch from "@/sanity/client";
 import Footer from "@/shared/Footer";
 import Navbar from "@/shared/Navbar";
-import { PortableText } from "@portabletext/react";
+import SanityPortableText from "@/shared/SanityPortableText";
 import { SanityDocument } from "@sanity/client";
 
 interface TSlug {
@@ -20,27 +20,6 @@ interface IServiceDetail {
 }
 
 const ARTICLE_QUERY = `*[_type == "article" && slug.current == $slug][0]{_id,  title, excerpt, publishedAt, body, "mainImage":mainImage.asset->url}`;
-
-const customComponents = {
-  types: {
-    image: ({ value }: any) => {
-      const { alt, asset } = value;
-      return <img src={asset.url} alt={alt} />;
-    },
-    youtube: ({ value }: any) => {
-      const { url } = value;
-      return (
-        <div className="video-container">
-          <iframe
-            src={url}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen></iframe>
-        </div>
-      );
-    },
-  },
-};
 
 async function Article({ slug }: TSlug) {
   const article: any = await sanityFetch<SanityDocument[]>({
@@ -83,7 +62,7 @@ async function Article({ slug }: TSlug) {
           alt="main-image"
         />
       </div>
-      <PortableText value={article.body} components={customComponents} />
+      <SanityPortableText value={article.body} />
     </div>
   );
 }
