@@ -1,14 +1,14 @@
 /** @format */
 
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
-import ChevronLeft from '@/assets/icons/chevron-left.svg';
-import WAIcon from '@/assets/icons/wa-icon-white.svg';
-import Footer from '@/components/shared/Footer';
-import Navbar from '@/components/shared/Navbar';
-import ProductDetailImage from '@/components/ui/ProductDetailImage';
-import { ProductDummyDescription } from '@/data';
+import ProductDetailImage from "@/app/products/ProductDetailImage";
+import ChevronLeft from "@/assets/icons/chevron-left.svg";
+import WAIcon from "@/assets/icons/wa-icon-white.svg";
+import { ProductDummyDescription } from "@/data";
+import Footer from "@/shared/Footer";
+import Navbar from "@/shared/Navbar";
 
 export default function ProductDetail() {
   return (

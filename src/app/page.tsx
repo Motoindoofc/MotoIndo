@@ -2,16 +2,16 @@
 
 import Image from "next/image";
 
+import HomeService from "@/app/HomeService";
 import ArrowRight from "@/assets/icons/arrow-right-icon.svg";
 import IntegratedIcon from "@/assets/icons/integrated-icon.svg";
 import SignatureIcon1 from "@/assets/icons/signature-icon-1.svg";
 import SignatureIcon2 from "@/assets/icons/signature-icon-2.svg";
 import SignatureIcon3 from "@/assets/icons/signature-icon-3.svg";
-import ArticleList from "@/components/shared/ArticleList";
-import Button from "@/components/shared/Button";
-import Footer from "@/components/shared/Footer";
-import Navbar from "@/components/shared/Navbar";
-import HomeService from "@/components/ui/HomeService";
+import ArticleList from "@/shared/ArticleList";
+import Button from "@/shared/Button";
+import Footer from "@/shared/Footer";
+import Navbar from "@/shared/Navbar";
 
 function HeroBackgroundVideo() {
   return (
@@ -106,7 +106,7 @@ export default function Home() {
               <br />
               tercipta lingkungan yang lebih aman.
             </h2>
-            <p className="mt-[60px] gap-[10px] text-[#4B65DB] text-[1.5rem] flex">
+            <p className="cursor-pointer mt-[60px] gap-[10px] text-[#4B65DB] text-[1.5rem] flex">
               Pelajari Lebih Lanjut <Image src={ArrowRight} alt="arrow-right" />
             </p>
           </div>

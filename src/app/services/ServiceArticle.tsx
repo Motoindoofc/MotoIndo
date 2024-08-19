@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 import { useSearchParams } from "next/navigation";
 
-import ArticleList from "../shared/ArticleList";
+import ArticleList from "@/shared/ArticleList";
 
 export default function ServiceArticle() {
   const searchParams = useSearchParams();

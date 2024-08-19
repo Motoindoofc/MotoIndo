@@ -29,6 +29,8 @@ export default function Navbar() {
     },
   ];
 
+  const currentPathname = pathname.split("/")[1];
+
   return (
     <nav className="h-[86px] px-[96px] bg-n-100 outer-wrapper">
       <div className="w-[1440px] flex items-center justify-between">
@@ -38,7 +40,9 @@ export default function Navbar() {
             <Link
               key={i}
               className={`text-[1.25rem] ${
-                route.href === pathname ? "font-bold text-b-600" : "text-n-900"
+                route.href.replace("/", "") === currentPathname
+                  ? "font-bold text-b-600"
+                  : "text-n-900"
               }`}
               href={route.href}>
               {route.name}

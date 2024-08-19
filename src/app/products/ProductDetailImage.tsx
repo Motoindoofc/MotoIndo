@@ -1,10 +1,10 @@
 /** @format */
 "use client";
 
-import Image from 'next/image';
+import Image from "next/image";
 
 /** @format */
-import ProductImg from '@/assets/images/article-1-img.jpg';
+import ProductImg from "@/assets/images/article-1-img.jpg";
 
 export default function ProductDetailImage() {
   return (

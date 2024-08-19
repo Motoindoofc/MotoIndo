@@ -1,16 +1,12 @@
 /** @format */
 "use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import Image from 'next/image';
+import Image from "next/image";
 
-import ChevronRight from '@/assets/icons/chevron-right.svg';
-import {
-  serviceDetails,
-  serviceLists,
-  TServiceDetails,
-} from '@/data';
+import ChevronRight from "@/assets/icons/chevron-right.svg";
+import { serviceDetails, serviceLists, TServiceDetails } from "@/data";
 
 export default function HomeService() {
   const [selectedService, setSelectedService] = useState(serviceDetails[0]);
@@ -60,7 +56,7 @@ export default function HomeService() {
                 __html: selectedService.description,
               }}
             />
-            <p className="text-b-600 font-semibold flex gap-1">
+            <p className="cursor-pointer text-b-600 font-semibold flex gap-1">
               Pelajari lebih lanjut
               <Image src={ChevronRight} alt="chevron" />
             </p>

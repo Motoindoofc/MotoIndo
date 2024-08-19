@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 
-import Achievement from "@/components/shared/Achievement";
-import Footer from "@/components/shared/Footer";
-import Navbar from "@/components/shared/Navbar";
-import ServiceArticle from "@/components/ui/ServiceArticle";
+import ServiceArticle from "@/app/services/ServiceArticle";
 import { serviceDetails, serviceLists } from "@/data";
+import Achievement from "@/shared/Achievement";
+import Footer from "@/shared/Footer";
+import Navbar from "@/shared/Navbar";
 
 export default function Services() {
   return (

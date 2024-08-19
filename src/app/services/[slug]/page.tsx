@@ -4,9 +4,9 @@ import { Suspense } from "react";
 
 import Image from "next/image";
 
-import Footer from "@/components/shared/Footer";
-import Navbar from "@/components/shared/Navbar";
 import sanityFetch from "@/sanity/client";
+import Footer from "@/shared/Footer";
+import Navbar from "@/shared/Navbar";
 import { PortableText } from "@portabletext/react";
 import { SanityDocument } from "@sanity/client";
 
