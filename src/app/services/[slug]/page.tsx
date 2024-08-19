@@ -62,7 +62,11 @@ async function Article({ slug }: TSlug) {
           alt="main-image"
         />
       </div>
-      <SanityPortableText value={article.body} />
+      <div className="outer-wrapper">
+        <div className="inner-wrapper">
+          <SanityPortableText value={article.body} />
+        </div>
+      </div>
     </div>
   );
 }

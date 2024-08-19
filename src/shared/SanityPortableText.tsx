@@ -1,6 +1,8 @@
 /** @format */
 
+import { client } from "@/sanity/client";
 import { PortableText, PortableTextReactComponents } from "@portabletext/react";
+import urlBuilder from "@sanity/image-url";
 
 interface ISanityPortableText {
   value: any;
@@ -11,13 +13,37 @@ const components: PortableTextReactComponents = {
     image: (props) => {
       const { value } = props;
       const { alt, asset } = value;
-      return (
-        <img
-          src={asset.url}
-          alt={alt || "Image"}
-          style={{ maxWidth: "100%", height: "auto" }}
-        />
-      );
+
+      if (asset) {
+        const imageURL = urlBuilder(client).image(asset?._ref)?.url() || "";
+
+        return (
+          <img
+            className="mt-[20px]"
+            src={imageURL}
+            alt={alt || "Motoindo Image"}
+            style={{ maxWidth: "100%", height: "auto" }}
+          />
+        );
+      }
+    },
+    youtube: (props) => {
+      const { value } = props;
+
+      if (value) {
+        const youtubeURL = value.url;
+
+        return (
+          <iframe
+            className="mt-[20px] w-full aspect-video"
+            src={youtubeURL}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen></iframe>
+        );
+      }
     },
   },
   marks: {

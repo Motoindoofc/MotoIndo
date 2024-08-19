@@ -2,7 +2,7 @@
 
 import { createClient, type QueryParams } from "@sanity/client";
 
-const client = createClient({
+export const client = createClient({
   projectId: "a73vobyr",
   dataset: "develop",
   apiVersion: "2024-01-01",
