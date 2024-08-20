@@ -8,12 +8,18 @@
   scroll-behavior: smooth;
 }
 
+body {
+  overflow-x: hidden;
+  /* overflow-x: hidden; */
+}
+
 *::-webkit-scrollbar {
-  width: 5px;
+  width: 8px;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #666;
+  background: #475569;
+  border-radius: 10px;
 }
 
 .outer-wrapper {

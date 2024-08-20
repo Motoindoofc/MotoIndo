@@ -52,10 +52,22 @@ const components: PortableTextReactComponents = {
   },
   list: {
     bullet: ({ children }) => (
-      <ul style={{ paddingLeft: "20px", listStyleType: "disc" }}>{children}</ul>
+      <ul
+        style={{
+          marginTop: "10px",
+          paddingLeft: "30px",
+          listStyleType: "disc",
+        }}>
+        {children}
+      </ul>
     ),
     number: ({ children }) => (
-      <ol style={{ paddingLeft: "20px", listStyleType: "decimal" }}>
+      <ol
+        style={{
+          marginTop: "10px",
+          paddingLeft: "30px",
+          listStyleType: "decimal",
+        }}>
         {children}
       </ol>
     ),
