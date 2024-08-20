@@ -1,5 +1,7 @@
 /** @format */
 
+import { Suspense } from "react";
+
 import Image from "next/image";
 
 import ServiceArticle from "@/app/services/ServiceArticle";
@@ -63,7 +65,9 @@ export default function Services() {
           ))}
         </div>
       </div>
-      <ServiceArticle />
+      <Suspense fallback={<div></div>}>
+        <ServiceArticle />
+      </Suspense>
       <Footer />
     </section>
   );

@@ -3,17 +3,17 @@
 import { Suspense } from "react";
 
 import Image from "next/image";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 
 import ProductDetailImage from "@/app/products/ProductDetailImage";
-import ChevronLeft from "@/assets/icons/chevron-left.svg";
 import WAIcon from "@/assets/icons/wa-icon-white.svg";
 import sanityFetch from "@/sanity/client";
 import Footer from "@/shared/Footer";
 import Navbar from "@/shared/Navbar";
 import SanityPortableText from "@/shared/SanityPortableText";
 import { SanityDocument } from "@sanity/client";
+
+import GoBack from "./GoBack";
 
 interface IProductDetail {
   params: { slug: string };
@@ -28,18 +28,13 @@ async function Product({ slug }: { slug: string }) {
   });
 
   if (!product) {
-    return redirect(`/products`);
+    return redirect(`/not-found`);
   }
 
   return (
     <div className="py-[36px] outer-wrapper">
       <div className="inner-wrapper !items-start">
-        <Link
-          className="flex items-center font-semibold  gap-2 text-[1.25rem] text-b-600"
-          href={`/products/${product.category.value}`}>
-          <Image src={ChevronLeft} alt="cheveon-left" />
-          Kembali ke halaman Produk
-        </Link>
+        <GoBack category={product.category.value} />
       </div>
       <div className="inner-wrapper mt-[20px] !flex-row !items-start flex gap-8 w-full ">
         <ProductDetailImage imageURL={product.image} />
