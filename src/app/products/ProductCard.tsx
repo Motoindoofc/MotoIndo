@@ -12,7 +12,7 @@ export default function ProductCard({ data }: any) {
         boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.06)",
       }}>
       <Image
-        className="w-full h-[200px] object-cover"
+        className="w-full h-[200px] object-contain"
         width={400}
         height={400}
         src={data.image[0]}

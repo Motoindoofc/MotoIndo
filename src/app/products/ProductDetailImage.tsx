@@ -29,7 +29,7 @@ export default function ProductDetailImage({
         width={800}
         height={800}
         alt="product-img"
-        className="w-full h-[560px] object-cover object rounded-3xl"
+        className="w-full h-[560px] object-contain rounded-3xl"
       />
       {formattedImages.length > 1 && (
         <div className="h-[200px] flex gap-3 items-stretch justify-between">

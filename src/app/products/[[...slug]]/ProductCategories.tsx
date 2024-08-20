@@ -8,6 +8,7 @@ import sanityFetch from "@/sanity/client";
 import { SanityDocument } from "@sanity/client";
 
 import ProductCard from "../ProductCard";
+import ProductSkeletons from "../ProductSkeletons";
 
 interface TRoutes {
   id: string;
@@ -30,7 +31,7 @@ async function ProductList({ category }: TCategory) {
   });
 
   return (
-    <div className="inner-wrapper flex items-center justify-center">
+    <div className="inner-wrapper min-h-[500px] flex items-center justify-start">
       <div className="w-[1216px] max-w-full flex flex-wrap gap-8">
         {products.length === 0 ? (
           <div>No product yet</div>
@@ -105,7 +106,7 @@ export default async function ProductCategories({
         </div>
       </div>
       <div className="outer-wrapper pt-[64px]">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<ProductSkeletons />}>
           <ProductList category={currentFormattedCategory} />
         </Suspense>
       </div>
