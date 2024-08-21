@@ -4,6 +4,7 @@ import { Suspense } from "react";
 
 import Link from "next/link";
 
+import ArticleSkeletons from "@/app/services/ArticleSkeletons";
 import sanityFetch from "@/sanity/client";
 import { SanityDocument } from "@sanity/client";
 
@@ -54,7 +55,7 @@ export default async function ArticleList({ isFull = false }: IArticleList) {
         Lihat proyek terbaru kami
       </p>
 
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<ArticleSkeletons />}>
         <List isFull={isFull} />
       </Suspense>
     </section>
