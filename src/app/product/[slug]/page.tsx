@@ -13,6 +13,7 @@ import Navbar from "@/shared/Navbar";
 import SanityPortableText from "@/shared/SanityPortableText";
 import { SanityDocument } from "@sanity/client";
 
+import ProductSkeleton from "../ProductSkeleton";
 import GoBack from "./GoBack";
 
 interface IProductDetail {
@@ -57,7 +58,7 @@ export default function ProductDetail({ params }: IProductDetail) {
   return (
     <section>
       <Navbar />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<ProductSkeleton />}>
         <Product slug={params.slug} />
       </Suspense>
       <Footer />
