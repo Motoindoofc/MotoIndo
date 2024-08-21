@@ -38,6 +38,10 @@ body {
   align-items: center;
 }
 
+.blurredImage {
+  filter: blur(10px);
+}
+
 .bg-b-gradient {
   background: linear-gradient(92deg, #1738ce 0%, #021464 100.59%);
 }

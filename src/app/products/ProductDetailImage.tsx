@@ -5,6 +5,8 @@ import { useState } from "react";
 
 import Image from "next/image";
 
+import ImageLoader from "@/shared/ImageLoader";
+
 export default function ProductDetailImage({
   imageURL,
 }: {
@@ -24,11 +26,10 @@ export default function ProductDetailImage({
 
   return (
     <div className="w-[50%] flex flex-col gap-4">
-      <Image
-        src={selectedImage.imageURL}
+      <ImageLoader
+        imageURL={selectedImage.imageURL}
         width={800}
         height={800}
-        alt="product-img"
         className="w-full h-[560px] object-contain rounded-3xl"
       />
       {formattedImages.length > 1 && (

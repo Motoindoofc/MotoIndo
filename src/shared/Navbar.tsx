@@ -32,7 +32,7 @@ export default function Navbar() {
   const currentPathname = pathname.split("/")[1];
 
   return (
-    <nav className="h-[86px] px-[96px] bg-n-100 outer-wrapper">
+    <nav className="h-[5rem] px-[96px] bg-n-100 outer-wrapper">
       <div className="w-[1440px] flex items-center justify-between">
         <Image src={MotoindoLogo} alt="motoindo-logo" height={36} />
         <div className="w-[417px] px-[24px] flex justify-between">

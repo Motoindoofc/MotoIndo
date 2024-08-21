@@ -1,7 +1,8 @@
 /** @format */
 
-import Image from "next/image";
 import Link from "next/link";
+
+import ImageLoader from "./ImageLoader";
 
 export default function CardArticle({ data }: any) {
   return (
@@ -9,8 +10,8 @@ export default function CardArticle({ data }: any) {
       href={`/services/${data.slug.current}`}
       className="cursor-pointer rounded-2xl overflow-hidden	w-[360px] h-[460px]"
       style={{ boxShadow: "0px 4px 25.1px 0px rgba(0, 0, 0, 0.09)" }}>
-      <Image
-        src={data.mainImage}
+      <ImageLoader
+        imageURL={data.mainImage}
         alt={data.title}
         width={400}
         height={400}

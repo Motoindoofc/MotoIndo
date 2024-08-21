@@ -1,7 +1,8 @@
 /** @format */
 
-import Image from "next/image";
 import Link from "next/link";
+
+import ImageLoader from "@/shared/ImageLoader";
 
 export default function ProductCard({ data }: any) {
   return (
@@ -11,12 +12,11 @@ export default function ProductCard({ data }: any) {
       style={{
         boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.06)",
       }}>
-      <Image
+      <ImageLoader
         className="w-full h-[200px] object-contain"
         width={400}
         height={400}
-        src={data.image[0]}
-        alt="product-img"
+        imageURL={data.image[0]}
       />
       <div className="py-[24px] px-[16px] flex flex-col gap-[12px]">
         <h1 className="text-[1rem] font-semibold line-clamp-2">{data.title}</h1>
