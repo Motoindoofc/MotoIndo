@@ -11,7 +11,7 @@ interface IImageLoader {
   height: number;
   width: number;
   className: string;
-  alt: string;
+  alt?: string;
 }
 
 export default function ImageLoader({
