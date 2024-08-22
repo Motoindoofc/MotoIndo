@@ -1,14 +1,14 @@
 /** @format */
 
-import { Suspense } from "react";
-
 import Image from "next/image";
 
-import ServiceArticle from "@/app/services/ServiceArticle";
 import { serviceDetails, serviceLists } from "@/data";
 import Achievement from "@/shared/Achievement";
+import ArticleList from "@/shared/ArticleList";
 import Footer from "@/shared/Footer";
 import Navbar from "@/shared/Navbar";
+
+import ServiceArticleScrollHandler from "./ServerArticleScrollHandler";
 
 export default function Services() {
   return (
@@ -65,9 +65,10 @@ export default function Services() {
           ))}
         </div>
       </div>
-      <Suspense fallback={<div></div>}>
-        <ServiceArticle />
-      </Suspense>
+      <div className="outer-wrapper" id="service-article">
+        <ArticleList isFull />
+        <ServiceArticleScrollHandler />
+      </div>
       <Footer />
     </section>
   );

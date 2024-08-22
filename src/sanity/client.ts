@@ -2,10 +2,14 @@
 
 import { createClient, type QueryParams } from "@sanity/client";
 
+const projectId = process.env.SANITY_PROJECT_ID;
+const dataset = process.env.SANITY_PROJECT_DATASET;
+const apiVersion = process.env.SANITY_API_VERSION;
+
 export const client = createClient({
-  projectId: "a73vobyr",
-  dataset: "develop",
-  apiVersion: "2024-01-01",
+  projectId,
+  dataset,
+  apiVersion,
   useCdn: true,
 });
 
