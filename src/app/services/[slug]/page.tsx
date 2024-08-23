@@ -11,6 +11,8 @@ import Navbar from "@/shared/Navbar";
 import SanityPortableText from "@/shared/SanityPortableText";
 import { SanityDocument } from "@sanity/client";
 
+import ArticleDetailSkeleton from "./ArticleDetailSkeleton";
+
 interface TSlug {
   slug: string;
 }
@@ -75,7 +77,7 @@ export default function ServiceDetail({ params }: IServiceDetail) {
   return (
     <section>
       <Navbar />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<ArticleDetailSkeleton />}>
         <Article slug={params.slug} />
       </Suspense>
       <Footer />
