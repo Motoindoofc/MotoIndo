@@ -1,17 +1,16 @@
 /** @format */
 
-import Image from "next/image";
+import Image from 'next/image';
 
-import HomeService from "@/app/HomeService";
-import ArrowRight from "@/assets/icons/arrow-right-icon.svg";
-import IntegratedIcon from "@/assets/icons/integrated-icon.svg";
-import SignatureIcon1 from "@/assets/icons/signature-icon-1.svg";
-import SignatureIcon2 from "@/assets/icons/signature-icon-2.svg";
-import SignatureIcon3 from "@/assets/icons/signature-icon-3.svg";
-import ArticleList from "@/shared/ArticleList";
-import Button from "@/shared/Button";
-import Footer from "@/shared/Footer";
-import Navbar from "@/shared/Navbar";
+import HomeService from '@/app/HomeService';
+import ArrowRight from '@/assets/icons/arrow-right-icon.svg';
+import IntegratedIcon from '@/assets/icons/integrated-icon.svg';
+import SignatureIcon1 from '@/assets/icons/signature-icon-1.svg';
+import SignatureIcon2 from '@/assets/icons/signature-icon-2.svg';
+import SignatureIcon3 from '@/assets/icons/signature-icon-3.svg';
+import ArticleList from '@/shared/ArticleList';
+import Button from '@/shared/Button';
+import Navbar from '@/shared/Navbar';
 
 function HeroBackgroundVideo() {
   return (
@@ -56,11 +55,11 @@ export default function Home() {
       <Navbar />
       <div className="outer-wrapper">
         <header className="inner-wrapper py-[64px]">
-          <h1 className="font-bold text-center text-[4rem]">
+          <h1 className="font-bold text-center text-[4rem] sm:text-[2rem]">
             Membangun Ekosistem Keamanan{" "}
             <span className="text-b-600">Terintegrasi</span>
           </h1>
-          <h2 className="mt-[4px] text-center text-[1.5rem] text-n-700">
+          <h2 className="mt-[4px] text-center text-[1.5rem] text-n-700 sm:text-[0.8rem] ">
             MotoIndo membangun ekosistem teknologi keamanan Komunikasi, CCTV,
             dan Sensor yang terintegrasi serta komprehensif untuk berbagai
             industri.
@@ -78,7 +77,7 @@ export default function Home() {
             Platform all-in-one menghubungkan 3 pilar keamanan secara terpusat,
             meningkatkan keamanan <br /> dan efisiensi industri
           </h2>
-          <div className="mt-[60px] flex gap-[48px]">
+          <div className="mt-[60px] flex gap-[48px] sm:flex-col">
             {signatures.map((signature, i) => (
               <div
                 key={i}
@@ -94,7 +93,7 @@ export default function Home() {
             ))}
           </div>
         </section>
-        <section className="mt-[160px] w-full justify-between bg-b-200 flex">
+        <section className="mt-[160px] w-full justify-between bg-b-200 flex sm:flex-col">
           <div className="flex flex-col pl-[96px] py-[64px] pr-[40px]">
             <Image src={IntegratedIcon} alt="integrated" />
             <h1 className="mt-[60px] mb-[36px] text-b-600 text-[3rem] font-semibold">
@@ -117,7 +116,7 @@ export default function Home() {
         <HomeService />
         <ArticleList />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </section>
   );
 }

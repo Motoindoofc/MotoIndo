@@ -1,6 +1,9 @@
 /** @format */
 
-import { ReactElement, ReactNode } from "react";
+import {
+  ReactElement,
+  ReactNode,
+} from 'react';
 
 interface IButton {
   children: ReactElement | ReactNode;
@@ -18,7 +21,7 @@ export default function Button({
   return (
     <button
       onClick={onClick}
-      className={`h-[52px] rounded-[8px] text-n-100 text-[1.25rem] flex justify-center items-center px-[1.5rem] ${
+      className={`min-h-[52px] rounded-[8px] text-n-100 text-[1.25rem] flex justify-center items-center px-[1.5rem] py-[0.5rem] ${
         isGradient ? "bg-b-gradient" : "bg-b-600"
       }  ${customClass} `}>
       {children}

@@ -1,6 +1,6 @@
 /** @format */
 
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -11,6 +11,10 @@ const config: Config = {
   ],
   theme: {
     extend: {},
+    screens: {
+      sm: { max: "768px" },
+      xl: { max: "1280px" },
+    },
   },
   plugins: [],
 };
