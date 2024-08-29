@@ -1,29 +1,33 @@
 /** @format */
 
-import { Suspense } from "react";
+import { Suspense } from 'react';
 
-import Image from "next/image";
+import Image from 'next/image';
 
-import { serviceDetails, serviceLists } from "@/data";
-import Achievement from "@/shared/Achievement";
-import ArticleList from "@/shared/ArticleList";
-import Footer from "@/shared/Footer";
-import Navbar from "@/shared/Navbar";
+import {
+  serviceDetails,
+  serviceLists,
+} from '@/data';
+import Achievement from '@/shared/Achievement';
+import ArticleList from '@/shared/ArticleList';
+import Footer from '@/shared/Footer';
+import Navbar from '@/shared/Navbar';
+import ServiceAccordion from '@/shared/ServiceAccordion';
 
-import ServiceArticleScrollHandler from "./ServerArticleScrollHandler";
+import ServiceArticleScrollHandler from './ServerArticleScrollHandler';
 
 export default function Services() {
   return (
     <section>
       <Navbar />
       <div className="outer-wrapper">
-        <div className="w-full bg-b-gradient-2 px-[96px] py-[80px] flex justify-center">
-          <div className="w-[1440px] flex justify-between items-center gap-6">
-            <div className="w-[636px] flex flex-col gap-8">
-              <p className="text-n-100 font-bold text-[4rem] leading-tight">
+        <div className="w-full bg-b-gradient-2 px-[96px] py-[80px] flex justify-center sm:flex-col sm:p-[1rem]">
+          <div className="w-[1440px] flex justify-between items-center gap-6 max-w-full sm:flex-col">
+            <div className="w-[636px] flex flex-col gap-8 sm:w-auto">
+              <p className="text-n-100 font-bold text-[4rem] leading-tight sm:text-[2rem] mt-[2.25rem]">
                 Layanan fleksible menyesuaikan kebutuhan Anda
               </p>
-              <p className="text-n-100 text-[1.5rem]">
+              <p className="text-n-100 text-[1.5rem] sm:text-[0.875rem]">
                 Sejak 2008 Motoindo dipercaya dalam komunikasi radio dan
                 keamanan.
                 <br /> Kami dapat melayani sesuai kebutuhan anda agar tercipta
@@ -34,7 +38,7 @@ export default function Services() {
           </div>
         </div>
       </div>
-      <div className="outer-wrapper">
+      <div className="outer-wrapper sm:hidden">
         <div className="inner-wrapper">
           {serviceLists.map((service, i) => (
             <div
@@ -66,6 +70,9 @@ export default function Services() {
             </div>
           ))}
         </div>
+      </div>
+      <div className="hidden sm:block">
+        <ServiceAccordion />
       </div>
       <div className="outer-wrapper" id="service-article">
         <ArticleList isFull />

@@ -67,7 +67,7 @@ async function List({ isFull }: IList) {
 
 export default async function ArticleList({ isFull = false }: IArticleList) {
   return (
-    <section className="inner-wrapper mt-[160px]">
+    <section className="inner-wrapper mt-[160px] sm:px-[1rem]">
       <p className="font-bold text-[2.5rem] text-center sm:text-[1.5rem]">
         Sejak 2008 berkontribusi dalam keamanan
       </p>

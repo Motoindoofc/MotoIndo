@@ -21,7 +21,7 @@ export default function Achievement() {
   ];
 
   return (
-    <div className="w-[600px] h-auto bg-b-900 grid grid-cols-2 gap-x-12 gap-y-7 py-[40px] px-[52px] rounded-[1.25rem] max-w-full sm:gap-y-4 sm:px-0 sm:grid-cols-2">
+    <div className="w-[600px] h-auto bg-b-900 grid grid-cols-2 gap-x-12 gap-y-7 py-[40px] px-[52px] rounded-[1.25rem] max-w-full sm:gap-y-4 sm:px-[1.5rem] sm:grid-cols-2 sm:w-full">
       {data.map((datum, i) => (
         <div
           key={i}
