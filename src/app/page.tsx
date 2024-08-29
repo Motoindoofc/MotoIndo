@@ -10,6 +10,7 @@ import SignatureIcon2 from '@/assets/icons/signature-icon-2.svg';
 import SignatureIcon3 from '@/assets/icons/signature-icon-3.svg';
 import ArticleList from '@/shared/ArticleList';
 import Button from '@/shared/Button';
+import Footer from '@/shared/Footer';
 import Navbar from '@/shared/Navbar';
 
 function HeroBackgroundVideo() {
@@ -116,7 +117,7 @@ export default function Home() {
         <HomeService />
         <ArticleList />
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </section>
   );
 }

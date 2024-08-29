@@ -24,14 +24,34 @@ const routes = [
   { name: "Produk", href: "/products" },
 ];
 
-function MobileNavbar({ isOpen }: { isOpen: boolean }) {
+function MobileNavbar({
+  isOpen,
+  setIsOpen,
+}: {
+  isOpen: boolean;
+  setIsOpen: (value: boolean) => void;
+}) {
   const router = useRouter();
   const pathname = usePathname();
   const currentPathname = pathname.split("/")[1];
 
+  const toLink = (pathname: string) => {
+    setIsOpen(false);
+    setTimeout(() => {
+      router.push(pathname);
+    }, 500);
+  };
+
+  const goToCTA = (pathname: string) => {
+    setIsOpen(false);
+    setTimeout(() => {
+      router.push(pathname);
+    }, 500);
+  };
+
   return (
     <div
-      className={`hidden sm:flex flex-col gap-16 fixed top-0 right-0 h-full w-full bg-b-400 p-[24px] transform transition-transform duration-300 ${
+      className={`hidden sm:flex flex-col gap-16 fixed top-0 right-0 h-full w-full bg-n-100 p-[24px] transform transition-transform duration-300 z-10 ${
         isOpen ? "translate-x-0" : "translate-x-full"
       }`}>
       <div className="flex justify-between">
@@ -41,7 +61,8 @@ function MobileNavbar({ isOpen }: { isOpen: boolean }) {
         {routes.map((route, i) => (
           <p
             key={i}
-            className={`text-[1.25rem] ${
+            onClick={() => toLink(route.href)}
+            className={`text-[1.25rem] cursor-pointer ${
               route.href.replace("/", "") === currentPathname
                 ? "font-bold text-b-600"
                 : "text-n-900"
@@ -52,7 +73,7 @@ function MobileNavbar({ isOpen }: { isOpen: boolean }) {
       </div>
       <Button
         customClass="gap-3 w-full py-[16px] h-auto self-end"
-        onClick={() => router.push(`${pathname}#footer`)}>
+        onClick={() => goToCTA(`${pathname}#footer`)}>
         <Image src={CallIcon} alt="call-icon" /> Hubungi Kami
       </Button>
     </div>
@@ -77,8 +98,8 @@ function NavbarComponent({
   return (
     <nav
       className={`${
-        isFixed ? "fixed top-0 left-0" : ""
-      } transform transition-all duration-200 h-[5rem] px-[96px] sm:px-[24px] bg-n-100 outer-wrapper ${
+        isFixed ? "fixed top-0 left-0" : "relative"
+      } transform transition-all duration-200 h-[5rem] px-[96px] sm:px-[24px] bg-n-100 outer-wrapper z-20  ${
         isOpen ? "!bg-transparent" : ""
       } ${isFixed && isScrolled ? "opacity-1 translate-y-0" : ""} ${
         isFixed && !isScrolled ? "opacity-0 -translate-y-full" : ""
@@ -134,7 +155,7 @@ function NavbarComponent({
 export default function Navbar() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isOpen, setIsOpen] = useState(false); // Default is false for closed
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -150,7 +171,7 @@ export default function Navbar() {
 
   return (
     <>
-      <MobileNavbar isOpen={isOpen} />
+      <MobileNavbar setIsOpen={setIsOpen} isOpen={isOpen} />
       <NavbarComponent
         isScrolled={isScrolled}
         isOpen={isOpen}
