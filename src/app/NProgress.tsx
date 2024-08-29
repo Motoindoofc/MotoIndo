@@ -5,14 +5,7 @@
 import { AppProgressBar as ProgressBar } from 'next-nprogress-bar';
 
 const NProgress = () => {
-  return (
-    <ProgressBar
-      height="4px"
-      color="#1738ce"
-      shallowRouting
-      style="z-index: 289;"
-    />
-  );
+  return <ProgressBar height="4px" color="#1738ce" />;
 };
 
 export default NProgress;
