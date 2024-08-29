@@ -13,7 +13,7 @@ const config: Config = {
     extend: {},
     screens: {
       sm: { max: "968px" },
-      xl: { max: "1280px" },
+      xl: { min: "1280px" },
     },
   },
   plugins: [],

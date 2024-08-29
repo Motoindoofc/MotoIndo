@@ -2,6 +2,8 @@
 
 import Image from 'next/image';
 
+import ArrowRight from '@/assets/icons/arrow-right-icon.svg';
+import IntegratedIcon from '@/assets/icons/integrated-icon.svg';
 import SignatureIcon1 from '@/assets/icons/signature-icon-1.svg';
 import SignatureIcon2 from '@/assets/icons/signature-icon-2.svg';
 import SignatureIcon3 from '@/assets/icons/signature-icon-3.svg';
@@ -9,6 +11,8 @@ import ArticleList from '@/shared/ArticleList';
 import Button from '@/shared/Button';
 import Footer from '@/shared/Footer';
 import Navbar from '@/shared/Navbar';
+
+import HomeService from './HomeService';
 
 function HeroBackgroundVideo() {
   return (
@@ -91,27 +95,27 @@ export default function Home() {
             ))}
           </div>
         </section>
-        {/* <section className="mt-[160px] w-full justify-between bg-b-200 flex sm:flex-col">
-          <div className="flex flex-col pl-[96px] py-[64px] pr-[40px]">
+        <section className="mt-[160px] w-full justify-between bg-b-200 flex sm:flex-col">
+          <div className="flex flex-col pl-[96px] py-[64px] pr-[40px] sm:py-[1.5rem] sm:px-[1rem] sm:gap-6">
             <Image src={IntegratedIcon} alt="integrated" />
-            <h1 className="mt-[60px] mb-[36px] text-b-600 text-[3rem] font-semibold">
+            <h1 className="mt-[60px] mb-[36px] text-b-600 text-[3rem] font-semibold sm:text-[1.25rem] sm:mt-0 sm:mb-0">
               Terintegrasi & Desentralisasi
             </h1>
-            <h2 className="text-n-700 text-[1.25rem]">
+            <h2 className="text-n-700 text-[1.25rem] sm:text-[0.75rem]">
               Pusat kendali menghadirkan keamanan yang lebih efisien. <br />
               Memudahkan user dalam mengawasi ruang lingkup pekerjaan sehingga
               <br />
               tercipta lingkungan yang lebih aman.
             </h2>
-            <p className="cursor-pointer mt-[60px] gap-[10px] text-[#4B65DB] text-[1.5rem] flex">
+            <p className="cursor-pointer mt-[60px] gap-[10px] text-[#4B65DB] text-[1.5rem] flex sm:text-[0.875rem] sm:mt-0">
               Pelajari Lebih Lanjut <Image src={ArrowRight} alt="arrow-right" />
             </p>
           </div>
-          <div className="bg-b-600 flex items-center w-[538px]">
+          <div className="bg-b-600 flex items-center xl:w-[538px] justify-center w-full">
             <IntegratedBackgroundVideo />
           </div>
-        </section> */}
-        {/* <HomeService /> */}
+        </section>
+        <HomeService />
         <ArticleList />
       </div>
       <Footer />
