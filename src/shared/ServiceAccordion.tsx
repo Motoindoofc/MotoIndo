@@ -17,7 +17,7 @@ import {
 } from '@/data';
 
 export default function ServiceAccordion() {
-  const [selectedService, setSelectedService] = useState<number | null>(null);
+  const [selectedService, setSelectedService] = useState<number | null>(1);
 
   // Properly typing the contentRefs to avoid TypeScript error
   const contentRefs = useRef<{ [key: number]: HTMLDivElement | null }>({});
