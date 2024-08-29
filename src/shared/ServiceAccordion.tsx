@@ -94,7 +94,6 @@ export default function ServiceAccordion() {
                 </p>
                 <Image
                   className="rounded-2xl object-cover w-full"
-                  width={520}
                   src={selectedServiceData.image}
                   alt={selectedServiceData.title}
                 />

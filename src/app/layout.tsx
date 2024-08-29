@@ -1,11 +1,11 @@
 /** @format */
 
-import "./globals.css";
+import './globals.css';
 
-import type { Metadata } from "next";
-import { Sora as SoraFont } from "next/font/google";
+import type { Metadata } from 'next';
+import { Sora as SoraFont } from 'next/font/google';
 
-import NProgress from "./NProgress";
+import NProgress from './NProgress';
 
 const Sora = SoraFont({
   subsets: ["latin"],
@@ -15,8 +15,8 @@ const Sora = SoraFont({
 });
 
 export const metadata: Metadata = {
-  title: "Motoindo",
-  description: "Motoindo",
+  title: "MotoIndo",
+  description: "MotoIndo, Membangun Ekosistem Keamanan Terintegrasi",
 };
 
 export default function RootLayout({
