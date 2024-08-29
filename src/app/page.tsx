@@ -11,6 +11,7 @@ import ArticleList from '@/shared/ArticleList';
 import Button from '@/shared/Button';
 import Footer from '@/shared/Footer';
 import Navbar from '@/shared/Navbar';
+import ServiceAccordion from '@/shared/ServiceAccordion';
 
 import HomeService from './HomeService';
 
@@ -107,7 +108,7 @@ export default function Home() {
               <br />
               tercipta lingkungan yang lebih aman.
             </h2>
-            <p className="cursor-pointer mt-[60px] gap-[10px] text-[#4B65DB] text-[1.5rem] flex sm:text-[0.875rem] sm:mt-0">
+            <p className="cursor-pointer mt-[60px] gap-[10px] text-[#4B65DB] text-[1.5rem] flex items-center sm:text-[0.875rem] sm:mt-0">
               Pelajari Lebih Lanjut <Image src={ArrowRight} alt="arrow-right" />
             </p>
           </div>
@@ -115,7 +116,12 @@ export default function Home() {
             <IntegratedBackgroundVideo />
           </div>
         </section>
-        <HomeService />
+        <div className="sm:hidden">
+          <HomeService />
+        </div>
+        <div className="hidden sm:block">
+          <ServiceAccordion />
+        </div>
         <ArticleList />
       </div>
       <Footer />
