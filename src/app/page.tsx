@@ -2,9 +2,6 @@
 
 import Image from 'next/image';
 
-import HomeService from '@/app/HomeService';
-import ArrowRight from '@/assets/icons/arrow-right-icon.svg';
-import IntegratedIcon from '@/assets/icons/integrated-icon.svg';
 import SignatureIcon1 from '@/assets/icons/signature-icon-1.svg';
 import SignatureIcon2 from '@/assets/icons/signature-icon-2.svg';
 import SignatureIcon3 from '@/assets/icons/signature-icon-3.svg';
@@ -71,10 +68,10 @@ export default function Home() {
           <HeroBackgroundVideo />
         </header>
         <section className="inner-wrapper">
-          <h1 className="text-b-800 font-bold text-[2.25rem] text-center max-w-[960px]">
+          <h1 className="text-b-800 font-bold text-[2.25rem] text-center max-w-[960px] sm:text-[1.25rem]">
             Implementasi keamanan <br /> dalam perkembangan industri 4.0
           </h1>
-          <h2 className="mt-[24px] text-center text-n-700 text-[1.25rem]">
+          <h2 className="mt-[24px] text-center text-n-700 text-[1.25rem] sm:text-[0.75rem]">
             Platform all-in-one menghubungkan 3 pilar keamanan secara terpusat,
             meningkatkan keamanan <br /> dan efisiensi industri
           </h2>
@@ -84,17 +81,17 @@ export default function Home() {
                 key={i}
                 className="p-[24px] w-[360px] rounded-[12px] bg-b-100 flex flex-col items-center">
                 <Image src={signature.image} alt={signature.title} />
-                <p className="text-b-600 font-bold mt-[12px] mb-[8px]">
+                <p className="text-b-600 font-bold mt-[12px] mb-[8px] sm:text-[1rem]">
                   {signature.title}
                 </p>
-                <p className="text-n-700 text-[1rem] text-center">
+                <p className="text-n-700 text-[1rem] text-center sm:text-[0.75rem]">
                   {signature.description}
                 </p>
               </div>
             ))}
           </div>
         </section>
-        <section className="mt-[160px] w-full justify-between bg-b-200 flex sm:flex-col">
+        {/* <section className="mt-[160px] w-full justify-between bg-b-200 flex sm:flex-col">
           <div className="flex flex-col pl-[96px] py-[64px] pr-[40px]">
             <Image src={IntegratedIcon} alt="integrated" />
             <h1 className="mt-[60px] mb-[36px] text-b-600 text-[3rem] font-semibold">
@@ -113,8 +110,8 @@ export default function Home() {
           <div className="bg-b-600 flex items-center w-[538px]">
             <IntegratedBackgroundVideo />
           </div>
-        </section>
-        <HomeService />
+        </section> */}
+        {/* <HomeService /> */}
         <ArticleList />
       </div>
       <Footer />

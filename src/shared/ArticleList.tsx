@@ -1,15 +1,15 @@
 /** @format */
 
-import { Suspense } from "react";
+import { Suspense } from 'react';
 
-import Link from "next/link";
+import Link from 'next/link';
 
-import ArticleSkeletons from "@/app/services/ArticleSkeletons";
-import sanityFetch from "@/sanity/client";
-import { SanityDocument } from "@sanity/client";
+import ArticleSkeletons from '@/app/services/ArticleSkeletons';
+import sanityFetch from '@/sanity/client';
+import { SanityDocument } from '@sanity/client';
 
-import Button from "./Button";
-import CardArticle from "./CardArticle";
+import Button from './Button';
+import CardArticle from './CardArticle';
 
 interface IList {
   isFull: boolean;
@@ -48,10 +48,10 @@ async function List({ isFull }: IList) {
 export default async function ArticleList({ isFull = false }: IArticleList) {
   return (
     <section className="inner-wrapper mt-[160px]">
-      <p className="font-bold text-[2.5rem]">
+      <p className="font-bold text-[2.5rem] text-center sm:text-[1.25rem]">
         Sejak 2008 berkontribusi dalam keamanan
       </p>
-      <p className="mt-[16px] mb-[64px] text-[1.25rem]">
+      <p className="mt-[16px] mb-[64px] text-[1.25rem] sm:text-[0.75rem]">
         Lihat proyek terbaru kami
       </p>
 

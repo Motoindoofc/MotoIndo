@@ -12,7 +12,7 @@ const config: Config = {
   theme: {
     extend: {},
     screens: {
-      sm: { max: "768px" },
+      sm: { max: "968px" },
       xl: { max: "1280px" },
     },
   },
