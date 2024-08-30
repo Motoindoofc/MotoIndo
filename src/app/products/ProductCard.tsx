@@ -1,14 +1,14 @@
 /** @format */
 
-import Link from "next/link";
+import Link from 'next/link';
 
-import ImageLoader from "@/shared/ImageLoader";
+import ImageLoader from '@/shared/ImageLoader';
 
 export default function ProductCard({ data }: any) {
   return (
     <Link
       href={`/product/${data.slug.current}`}
-      className="cursor-pointer rounded-2xl w-[280px] h-[320px] bg-n-100 overflow-hidden"
+      className="cursor-pointer rounded-2xl w-[280px] h-[320px] bg-n-100 overflow-hidden sm:w-[168px]"
       style={{
         boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.06)",
       }}>

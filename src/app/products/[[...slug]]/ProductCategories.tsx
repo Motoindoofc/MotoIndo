@@ -1,14 +1,14 @@
 /** @format */
 
-import { Suspense } from "react";
+import { Suspense } from 'react';
 
-import Link from "next/link";
+import Link from 'next/link';
 
-import sanityFetch from "@/sanity/client";
-import { SanityDocument } from "@sanity/client";
+import sanityFetch from '@/sanity/client';
+import { SanityDocument } from '@sanity/client';
 
-import ProductCard from "../ProductCard";
-import ProductSkeletons from "../ProductSkeletons";
+import ProductCard from '../ProductCard';
+import ProductSkeletons from '../ProductSkeletons';
 
 interface TRoutes {
   id: string;
@@ -32,11 +32,11 @@ async function ProductList({ category }: TCategory) {
 
   return (
     <div className="inner-wrapper min-h-[500px] flex items-center justify-start">
-      <div className="w-[1216px] max-w-full flex flex-wrap gap-8">
+      <div className="w-[1216px] max-w-full flex flex-wrap sm:w-full sm:justify-center">
         {products.length === 0 ? (
           <div>No product yet</div>
         ) : (
-          <div className="flex gap-16">
+          <div className="flex flex-wrap justify-between w-[90%] gap-16 sm:gap-4 sm:grid-cols-2">
             {products.map((product) => (
               <ProductCard key={product._id} data={product} />
             ))}
@@ -84,9 +84,10 @@ export default async function ProductCategories({
 
   return (
     <>
-      <div className="outer-wrapper">
+      <div className="outer-wrapper sm:px-[1rem]">
         <div
-          className="mt-[48px] h-[76px] py-[12px] px-[64px] w-[1180px] bg-n-100 flex justify-center items-center rounded-xl gap-16"
+          className="mt-[48px] h-[76px] py-[12px] px-[64px] w-[1180px] bg-n-100 flex justify-center items-center rounded-xl gap-16 sm:px-[1rem] sm:w-full 
+          sm:h-auto sm:justify-between sm:flex-wrap sm:gap-4 sm:grid-cols-2"
           style={{
             boxShadow: "0px 5px 12px 2px rgba(0, 0, 0, 0.08)",
           }}>
@@ -94,7 +95,7 @@ export default async function ProductCategories({
             <Link
               key={i}
               href={`/products${category.href}`}
-              className={`cursor-pointer h-[52px] py-[16px] px-[24px] rounded-lg font-semibold uppercase ${
+              className={`cursor-pointer h-[52px] py-[16px] px-[24px] rounded-lg font-semibold uppercase sm:w-[160px] sm:text-[0.75rem] sm:h-auto sm:py-[0.5rem] ${
                 currentCategory === category.href.replace("/", "")
                   ? "bg-b-500 text-n-100"
                   : "text-n-700"
