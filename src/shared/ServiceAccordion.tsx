@@ -62,7 +62,7 @@ export default function ServiceAccordion() {
             <div
               key={i}
               className={`w-full flex flex-col justify-start items-start rounded-xl cursor-pointer p-[1rem] ${
-                isSelected ? "bg-b-200" : ""
+                isSelected ? "bg-b-200" : "bg-white"
               }`}
               style={{
                 boxShadow:

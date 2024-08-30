@@ -71,7 +71,7 @@ export default function Services() {
           ))}
         </div>
       </div>
-      <div className="hidden sm:block">
+      <div className="hidden sm:block bg-n-200">
         <ServiceAccordion />
       </div>
       <div className="outer-wrapper" id="service-article">
