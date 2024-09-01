@@ -46,16 +46,16 @@ async function Article({ slug }: TSlug) {
 
   return (
     <div className="outer-wrapper">
-      <div className="inner-wrapper py-[64px] flex flex-col gap-9">
-        <h1 className="text-[4rem] font-semibold text-center">
+      <div className="inner-wrapper py-[64px] flex flex-col gap-9 !w-[1156px] sm:px-[1rem]">
+        <h1 className="text-[4rem] font-semibold text-center sm:text-[2rem]">
           {article.title}
         </h1>
-        <h2 className="text-n-700 text-[1.5rem] text-center">
+        <h2 className="text-n-700 text-[1.5rem] text-center sm:text-[1rem]">
           {article.excerpt}
         </h2>
         <p className="text-n-700">{formattedDate}</p>
       </div>
-      <div className="mt-[64px] inner-wrapper">
+      <div className="mt-[64px] inner-wrapper !w-[1156px] sm:px-[1rem]">
         <Image
           src={article.mainImage}
           className="w-full rounded-3xl"
@@ -64,8 +64,8 @@ async function Article({ slug }: TSlug) {
           alt="main-image"
         />
       </div>
-      <div className="outer-wrapper">
-        <div className="inner-wrapper">
+      <div className="outer-wrapper mt-[40px]">
+        <div className="inner-wrapper !w-[1156px] sm:px-[1rem]">
           <SanityPortableText value={article.body} />
         </div>
       </div>
