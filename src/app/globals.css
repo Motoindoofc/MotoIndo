@@ -39,6 +39,20 @@ body {
   align-items: center;
 }
 
+.product-hero {
+  background-image: url("/images/product-hero-deskop-img.jpg");
+  background-size: cover;
+  background-position: bottom center;
+}
+
+@media (max-width: 600px) {
+  .product-hero {
+    background-image: url("/images/product-hero-mobile-img.jpg");
+    background-size: cover;
+    background-position: bottom center;
+  }
+}
+
 .blurredImage {
   filter: blur(10px);
 }

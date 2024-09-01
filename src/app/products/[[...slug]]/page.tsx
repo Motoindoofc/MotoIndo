@@ -1,6 +1,5 @@
 /** @format */
 
-import ProductBackground from "@/assets/images/product-hero-img.jpg";
 import Footer from "@/shared/Footer";
 import Navbar from "@/shared/Navbar";
 
@@ -16,13 +15,7 @@ export default function Products({ params }: IProducts) {
   return (
     <section>
       <Navbar />
-      <div
-        className="outer-wrapper h-[28rem] sm:!bg-right"
-        style={{
-          backgroundImage: `url(${ProductBackground.src})`,
-          backgroundSize: "cover",
-          backgroundPosition: "bottom center",
-        }}>
+      <div className="outer-wrapper product-hero h-[28rem]">
         <div className="w-full h-full py-[108px] px-[96px] flex justify-center sm:p-[1.5rem]">
           <div className="w-[1440px] flex justify-between items-start gap-6 sm:max-w-full">
             <div className="flex flex-col gap-8 sm:gap-6">
