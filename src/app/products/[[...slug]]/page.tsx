@@ -1,10 +1,10 @@
 /** @format */
 
-import ProductBackground from '@/assets/images/product-hero-img.jpg';
-import Footer from '@/shared/Footer';
-import Navbar from '@/shared/Navbar';
+import ProductBackground from "@/assets/images/product-hero-img.jpg";
+import Footer from "@/shared/Footer";
+import Navbar from "@/shared/Navbar";
 
-import ProductCategories from './ProductCategories';
+import ProductCategories from "./ProductCategories";
 
 interface IProducts {
   params: { slug: string[] };

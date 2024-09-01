@@ -1,13 +1,13 @@
 /** @format */
 
-import Image from 'next/image';
+import Image from "next/image";
 
-import EmailIcon from '@/assets/icons/email-icon.svg';
-import WAIcon from '@/assets/icons/wa-icon.svg';
-import CTAImage from '@/assets/images/footer-img.png';
-import MotoIndo from '@/assets/logo/motoindo-footer-logo.svg';
+import EmailIcon from "@/assets/icons/email-icon.svg";
+import WAIcon from "@/assets/icons/wa-icon.svg";
+import CTAImage from "@/assets/images/footer-img.png";
+import MotoIndo from "@/assets/logo/motoindo-footer-logo.svg";
 
-import Achievement from './Achievement';
+import Achievement from "./Achievement";
 
 function ContactSection() {
   return (
@@ -16,13 +16,13 @@ function ContactSection() {
         Tingkatkan keamanan dengan kami
       </p>
       <div className="flex flex-col gap-6">
-        <div className="bg-n-100 rounded-2xl flex items-center justify-center w-[500px] h-[64px] py-[16px] gap-4 max-w-full sm:w-auto sm:px-[24px]">
+        <div className="bg-n-100 rounded-2xl flex items-center justify-center w-[500px] h-[64px] py-[16px] gap-4 max-w-full sm:w-auto sm:px-[24px] sm:gap-2">
           <Image src={EmailIcon} alt="email-icon" />
           <p className="text-b-700 text-[1.5rem] font-semibold">
             contact@motoindo.id
           </p>
         </div>
-        <div className="bg-n-100 rounded-2xl flex items-center justify-center w-[500px] h-[64px] py-[16px] gap-4 max-w-full sm:w-auto sm:px-[24px]">
+        <div className="bg-n-100 rounded-2xl flex items-center justify-center w-[500px] h-[64px] py-[16px] gap-4 max-w-full sm:w-auto sm:px-[24px] sm:gap-2">
           <Image src={WAIcon} alt="wa-icon" />
           <p className="text-b-700 text-[1.5rem] font-semibold">
             +62 812 5643 9012
@@ -62,7 +62,7 @@ export default function Footer() {
       <div className="h-[380px] relative sm:hidden">
         <CTA />
       </div>
-      <div className="hidden sm:flex bg-b-gradient flex-col items-center gap-9 pt-[24px] pb-[70px] px-0">
+      <div className="hidden sm:flex bg-b-gradient flex-col items-center gap-9 pt-[24px] pb-[70px] px-0 sm:px-[1rem]">
         <ContactSection />
       </div>
       <div className="outer-wrapper h-[820px] px-[145px] bg-b-900 w-full sm:px-[24px] sm:h-auto">

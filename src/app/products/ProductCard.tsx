@@ -1,10 +1,17 @@
 /** @format */
 
-import Link from 'next/link';
+import Link from "next/link";
 
-import ImageLoader from '@/shared/ImageLoader';
+import ImageLoader from "@/shared/ImageLoader";
 
-export default function ProductCard({ data }: any) {
+import { Product } from "./[[...slug]]/ProductCategories";
+
+// Use the defined Product type for the props
+interface ProductCardProps {
+  data: Product;
+}
+
+export default function ProductCard({ data }: ProductCardProps) {
   return (
     <Link
       href={`/product/${data.slug.current}`}
