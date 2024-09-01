@@ -1,22 +1,16 @@
 /** @format */
 "use client";
 
-import {
-  useEffect,
-  useState,
-} from 'react';
+import { useEffect, useState } from "react";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import {
-  usePathname,
-  useRouter,
-} from 'next/navigation';
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
-import CallIcon from '@/assets/icons/call-icon.svg';
-import MotoindoLogo from '@/assets/logo/motoindo-nav-logo.png';
+import CallIcon from "@/assets/icons/call-icon.svg";
+import MotoindoLogo from "@/assets/logo/motoindo-nav-logo.png";
 
-import Button from './Button';
+import Button from "./Button";
 
 const routes = [
   { name: "Beranda", href: "/" },
@@ -100,7 +94,7 @@ function NavbarComponent({
       className={`${
         isFixed ? "fixed top-0 left-0" : "relative"
       } transform transition-all duration-200 h-[5rem] px-[96px] sm:px-[24px] bg-n-100 outer-wrapper z-20  ${
-        isOpen ? "!bg-transparent" : ""
+        isOpen ? "!bg-transparent" : "border-b border-solid border-neutral-100"
       } ${isFixed && isScrolled ? "opacity-1 translate-y-0" : ""} ${
         isFixed && !isScrolled ? "opacity-0 -translate-y-full" : ""
       }`}>

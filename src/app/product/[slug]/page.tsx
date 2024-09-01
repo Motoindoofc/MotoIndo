@@ -33,19 +33,27 @@ async function Product({ slug }: { slug: string }) {
   }
 
   return (
-    <div className="py-[36px] outer-wrapper">
+    <div className="py-[36px] outer-wrapper sm:px-[1rem]">
       <div className="inner-wrapper !items-start">
         <GoBack category={product.category.value} />
       </div>
-      <div className="inner-wrapper mt-[20px] !flex-row !items-start flex gap-8 w-full ">
+      <div className="inner-wrapper mt-[20px] !flex-row !items-start flex gap-8 w-full sm:!flex-col">
+        <h1 className="hidden sm:block font-semibold text-[1.5rem]">
+          {product.title}
+        </h1>
         <ProductDetailImage imageURL={product.image} />
-        <div className="w-[50%] h-[698px] flex flex-col gap-3">
-          <h1 className="font-semibold text-[2.25rem]">{product.title}</h1>
+        <div className="w-[50%] h-[698px] flex flex-col gap-3 sm:w-full sm:h-auto">
+          <h1 className="font-semibold text-[2.25rem] sm:hidden">
+            {product.title}
+          </h1>
           <h2 className="font-semibold text-n-700 text-[1rem]">Description</h2>
-          <div className="h-[520px]  overflow-y-auto">
+          <div className="h-[520px] overflow-y-auto sm:h-auto">
             <SanityPortableText value={product.body} />,
           </div>
-          <button className="rounded-lg h-[72px] text-[1.25rem] text-n-100 font-semibold w-full flex items-center justify-center bg-[#0EA46D] gap-3">
+          <button className="rounded-lg h-[72px] text-[1.25rem] text-n-100 font-semibold w-full flex items-center justify-center bg-[#0EA46D] gap-3 sm:hidden">
+            <Image src={WAIcon} alt="wa-icon" /> Order Via Whatsapp
+          </button>
+          <button className="fixed bottom-10 right-[50%] translate-x-[50%] items-center justify-center rounded-[72px] h-[72px] w-[312px] font-bold text-n-100 bg-[#0EA46D] text-[1.25rem] gap-3 hidden sm:flex">
             <Image src={WAIcon} alt="wa-icon" /> Order Via Whatsapp
           </button>
         </div>

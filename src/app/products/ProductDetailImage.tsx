@@ -25,12 +25,12 @@ export default function ProductDetailImage({
   };
 
   return (
-    <div className="w-[50%] flex flex-col gap-4">
+    <div className="w-[50%] flex flex-col gap-4 sm:w-full">
       <ImageLoader
         imageURL={selectedImage.imageURL}
         width={800}
         height={800}
-        className="w-full h-[560px] object-contain rounded-3xl"
+        className="w-full h-[560px] object-contain rounded-3xl border "
       />
       {formattedImages.length > 1 && (
         <div className="h-[200px] flex gap-3 items-stretch justify-between">
