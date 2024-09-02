@@ -58,13 +58,13 @@ function CTA() {
 
 export default function Footer() {
   return (
-    <div className="pt-[120px] bg-n-200" id="footer">
+    <div className="pt-[120px] bg-n-200 sm:pt-[120px]" id="footer">
       <div className="h-[380px] relative sm:hidden">
         <CTA />
       </div>
-      <div className="hidden sm:flex bg-b-gradient flex-col items-center gap-9 pt-[24px] pb-[70px] px-0 sm:px-[1rem]">
+      {/* <div className="hidden sm:flex bg-b-gradient flex-col items-center gap-9 pt-[24px] pb-[70px] px-0 sm:px-[1rem]">
         <ContactSection />
-      </div>
+      </div> */}
       <div className="outer-wrapper h-[820px] px-[145px] bg-b-900 w-full sm:px-[24px] sm:h-auto">
         <div className="inner-wrapper">
           <div className="mt-[240px] w-full flex justify-center gap-12 max-w-[1156px] sm:flex-col sm:mt-0 sm:gap-4">

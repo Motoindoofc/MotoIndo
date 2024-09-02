@@ -14,6 +14,7 @@ import SanityPortableText from "@/shared/SanityPortableText";
 import { SanityDocument } from "@sanity/client";
 
 import ProductSkeleton from "../ProductSkeleton";
+import FixedButton from "./FixedButton";
 import GoBack from "./GoBack";
 
 interface IProductDetail {
@@ -50,12 +51,10 @@ async function Product({ slug }: { slug: string }) {
           <div className="h-[520px] overflow-y-auto sm:h-auto">
             <SanityPortableText value={product.body} />,
           </div>
-          <button className="rounded-lg h-[72px] text-[1.25rem] text-n-100 font-semibold w-full flex items-center justify-center bg-[#0EA46D] gap-3 sm:hidden">
+          <button className="rounded-lg h-[72px] text-[1.25rem] py-[18px] text-n-100 font-semibold w-full flex items-center justify-center bg-[#0EA46D] gap-3 sm:hidden">
             <Image src={WAIcon} alt="wa-icon" /> Order Via Whatsapp
           </button>
-          <button className="fixed bottom-10 right-[50%] translate-x-[50%] items-center justify-center rounded-[72px] h-[72px] w-[312px] font-bold text-n-100 bg-[#0EA46D] text-[1.25rem] gap-3 hidden sm:flex">
-            <Image src={WAIcon} alt="wa-icon" /> Order Via Whatsapp
-          </button>
+          <FixedButton />
         </div>
       </div>
     </div>
