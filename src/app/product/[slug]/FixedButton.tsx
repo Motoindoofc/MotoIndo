@@ -26,10 +26,10 @@ export default function FixedButton() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           button.style.position = "absolute";
-          button.style.bottom = "40px";
+          button.style.bottom = "0px";
         } else {
-          // Reset button's position to fixed when not intersecting
           button.style.position = "fixed";
+          button.style.bottom = "40px";
         }
       });
     };
@@ -50,8 +50,8 @@ export default function FixedButton() {
   }, []);
 
   return (
-    <div className="mt-[120px] button-container relative">
-      <button className="fixed-button fixed right-[50%] translate-x-[50%] items-center justify-center rounded-[72px] h-[72px] w-[312px] font-bold text-n-100 bg-[#0EA46D] text-[1.25rem] gap-3 hidden sm:flex">
+    <div className="mt-[100px] button-container relative">
+      <button className="fixed-button fixed bottom-[40px] right-[50%] translate-x-[50%] items-center justify-center rounded-[72px] h-[72px] w-[312px] font-bold text-n-100 bg-[#0EA46D] text-[1.25rem] gap-3 hidden sm:flex">
         <Image src={WAIcon} alt="wa-icon" /> Order Via Whatsapp
       </button>
     </div>
