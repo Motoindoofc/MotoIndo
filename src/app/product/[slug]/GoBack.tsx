@@ -28,7 +28,7 @@ export default function GoBack({ category }: { category: string }) {
 
   return (
     <p
-      className="cursor-pointer flex items-center font-semibold  gap-2 text-[1.25rem] text-b-600"
+      className="cursor-pointer flex items-center font-semibold  gap-2 text-[1.25rem] text-b-600 sm:text-[0.875rem]"
       onClick={handleGoBack}>
       <Image src={ChevronLeft} alt="cheveon-left" />
       Kembali ke halaman Produk
