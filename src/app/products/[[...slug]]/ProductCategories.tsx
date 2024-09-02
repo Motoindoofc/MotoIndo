@@ -47,7 +47,7 @@ async function ProductList({ category }: { category: TCategory }) {
         {products.length === 0 ? (
           <div>No product yet</div>
         ) : (
-          <div className="flex flex-wrap gap-8 sm:gap-4 sm:grid-cols-2">
+          <div className="flex flex-wrap gap-8 sm:grid sm:grid-cols-2 sm:gap-4">
             {products.map((product) => (
               <ProductCard key={product._id} data={product} />
             ))}
