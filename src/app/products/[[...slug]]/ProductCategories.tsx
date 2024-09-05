@@ -4,6 +4,7 @@ import { Suspense } from "react";
 
 import Link from "next/link";
 
+import { Product, TCategory } from "@/interface/product";
 import sanityFetch from "@/sanity/client";
 import { SanityDocument } from "@sanity/client";
 
@@ -15,20 +16,6 @@ interface TRoutes {
   id: string;
   href: string;
   name: string;
-}
-
-interface TCategory {
-  id: string;
-  href: string;
-  name: string;
-}
-
-export interface Product {
-  _id: string;
-  slug: { current: string };
-  title: string;
-  preview: string;
-  image: string[];
 }
 
 const CATEGORIES_QUERY = `*[_type == "category"]{_id, value, name, date}|order(date asc)`;

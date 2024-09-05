@@ -52,7 +52,7 @@ export default function FixedButton() {
   return (
     <div className="mt-[100px] button-container relative">
       <button className="fixed-button fixed bottom-[40px] right-[50%] translate-x-[50%] items-center justify-center rounded-[72px] h-[72px] w-[312px] font-bold text-n-100 bg-[#0EA46D] text-[1.25rem] gap-3 hidden sm:flex">
-        <Image src={WAIcon} alt="wa-icon" /> Order Via Whatsapp
+        <Image src={WAIcon} alt="wa-icon" /> Contact Via Whatsapp
       </button>
     </div>
   );

@@ -5,11 +5,11 @@ import { Suspense } from "react";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
+import { TArticle } from "@/interface/article";
 import sanityFetch from "@/sanity/client";
 import Footer from "@/shared/Footer";
 import Navbar from "@/shared/Navbar";
 import SanityPortableText from "@/shared/SanityPortableText";
-import { SanityDocument } from "@sanity/client";
 
 import ArticleDetailSkeleton from "./ArticleDetailSkeleton";
 
@@ -24,7 +24,7 @@ interface IServiceDetail {
 const ARTICLE_QUERY = `*[_type == "article" && slug.current == $slug][0]{_id,  title, excerpt, publishedAt, body, "mainImage":mainImage.asset->url}`;
 
 async function Article({ slug }: TSlug) {
-  const article: any = await sanityFetch<SanityDocument[]>({
+  const article: TArticle = await sanityFetch<TArticle>({
     query: ARTICLE_QUERY,
     params: { slug },
   });

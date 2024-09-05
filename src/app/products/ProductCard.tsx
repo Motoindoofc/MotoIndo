@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 
+import { Product } from "@/interface/product";
 import ImageLoader from "@/shared/ImageLoader";
-
-import { Product } from "./[[...slug]]/ProductCategories";
 
 // Use the defined Product type for the props
 interface ProductCardProps {
