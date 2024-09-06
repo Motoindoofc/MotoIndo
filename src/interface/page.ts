@@ -7,3 +7,7 @@ export interface TSlug {
 export interface PageProps {
   params: TSlug;
 }
+
+export interface TString {
+  [key: string]: string;
+}

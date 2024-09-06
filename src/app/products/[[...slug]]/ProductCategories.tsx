@@ -4,6 +4,7 @@ import { Suspense } from "react";
 
 import Link from "next/link";
 
+import { TString } from "@/interface/page";
 import { TCategory, TProduct, TRoutes } from "@/interface/product";
 import sanityFetch from "@/sanity/client";
 import { SanityDocument } from "@sanity/client";
@@ -40,11 +41,7 @@ async function ProductList({ category }: { category: TCategory }) {
   );
 }
 
-export default async function ProductCategories({
-  currentCategory,
-}: {
-  currentCategory: string;
-}) {
+export default async function ProductCategories({ currentCategory }: TString) {
   const categoriesFetch = await sanityFetch<SanityDocument[]>({
     query: CATEGORIES_QUERY,
   });

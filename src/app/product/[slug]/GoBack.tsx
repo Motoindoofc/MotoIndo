@@ -7,8 +7,9 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import ChevronLeft from "@/assets/icons/chevron-left.svg";
+import { TString } from "@/interface/page";
 
-export default function GoBack({ category }: { category: string }) {
+export default function GoBack({ category }: TString) {
   const router = useRouter();
   const [hasRouteBack, setHasRouteBack] = useState(false);
 

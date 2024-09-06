@@ -28,3 +28,8 @@ export interface TProduct {
     value: string;
   };
 }
+
+export interface ArrowButtonProps {
+  isBack?: boolean;
+  scrollContainerRef: React.RefObject<HTMLDivElement>;
+}
