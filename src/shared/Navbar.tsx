@@ -18,13 +18,12 @@ const routes = [
   { name: "Produk", href: "/products" },
 ];
 
-function MobileNavbar({
-  isOpen,
-  setIsOpen,
-}: {
+interface MobileNavbarProps {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
-}) {
+}
+
+function MobileNavbar({ isOpen, setIsOpen }: MobileNavbarProps) {
   const router = useRouter();
   const pathname = usePathname();
   const currentPathname = pathname.split("/")[1];

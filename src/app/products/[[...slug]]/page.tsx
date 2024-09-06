@@ -1,15 +1,16 @@
 /** @format */
 
+import { TSlug } from "@/interface/page";
 import Footer from "@/shared/Footer";
 import Navbar from "@/shared/Navbar";
 
 import ProductCategories from "./ProductCategories";
 
-interface IProducts {
-  params: { slug: string[] };
+interface ProductsProps {
+  params: TSlug;
 }
 
-export default function Products({ params }: IProducts) {
+export default function Products({ params }: ProductsProps) {
   const currentCategory = params?.slug?.[0] || "";
 
   return (

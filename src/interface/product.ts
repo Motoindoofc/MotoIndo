@@ -1,12 +1,18 @@
 /** @format */
 
+export interface TRoutes {
+  id: string;
+  href: string;
+  name: string;
+}
+
 export interface TCategory {
   id: string;
   href: string;
   name: string;
 }
 
-export interface Product {
+export interface TProduct {
   _id: string;
   slug: { current: string };
   title: string;

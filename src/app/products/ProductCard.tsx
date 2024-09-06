@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 
-import { Product } from "@/interface/product";
+import { TProduct } from "@/interface/product";
 import ImageLoader from "@/shared/ImageLoader";
 
 // Use the defined Product type for the props
 interface ProductCardProps {
-  data: Product;
+  data: TProduct;
 }
 
 export default function ProductCard({ data }: ProductCardProps) {

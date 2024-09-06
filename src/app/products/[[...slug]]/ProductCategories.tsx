@@ -4,7 +4,7 @@ import { Suspense } from "react";
 
 import Link from "next/link";
 
-import { Product, TCategory } from "@/interface/product";
+import { TCategory, TProduct, TRoutes } from "@/interface/product";
 import sanityFetch from "@/sanity/client";
 import { SanityDocument } from "@sanity/client";
 
@@ -12,18 +12,13 @@ import ProductCard from "../ProductCard";
 import ProductSkeletons from "../ProductSkeletons";
 
 // Define the custom types based on your Sanity data structure
-interface TRoutes {
-  id: string;
-  href: string;
-  name: string;
-}
 
 const CATEGORIES_QUERY = `*[_type == "category"]{_id, value, name, date}|order(date asc)`;
 
 const PRODUCTS_QUERY = `*[_type == "product" && ($category == "" || category._ref == $category)]{_id, title, slug, category, preview, "image":image[].asset->url}|order(date desc)`;
 
 async function ProductList({ category }: { category: TCategory }) {
-  const products = await sanityFetch<Product[]>({
+  const products = await sanityFetch<TProduct[]>({
     query: PRODUCTS_QUERY,
     params: { category: category.id || "" },
   });

@@ -6,16 +6,13 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 
 import { TArticle } from "@/interface/article";
+import { TSlug } from "@/interface/page";
 import sanityFetch from "@/sanity/client";
 import Footer from "@/shared/Footer";
 import Navbar from "@/shared/Navbar";
 import SanityPortableText from "@/shared/SanityPortableText";
 
 import ArticleDetailSkeleton from "./ArticleDetailSkeleton";
-
-interface TSlug {
-  slug: string;
-}
 
 interface IServiceDetail {
   params: TSlug;
