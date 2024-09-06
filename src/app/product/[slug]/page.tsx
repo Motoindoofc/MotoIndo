@@ -7,25 +7,21 @@ import { redirect } from "next/navigation";
 
 import ProductDetailImage from "@/app/products/ProductDetailImage";
 import WAIcon from "@/assets/icons/wa-icon-white.svg";
-import { TSlug } from "@/interface/page";
+import { PageProps, TSlug } from "@/interface/page";
+import { TProduct } from "@/interface/product";
 import sanityFetch from "@/sanity/client";
 import Footer from "@/shared/Footer";
 import Navbar from "@/shared/Navbar";
 import SanityPortableText from "@/shared/SanityPortableText";
-import { SanityDocument } from "@sanity/client";
 
 import ProductSkeleton from "../ProductSkeleton";
 import FixedButton from "./FixedButton";
 import GoBack from "./GoBack";
 
-interface ProductDetailProps {
-  params: TSlug;
-}
-
 const PRODUCT_QUERY = `*[_type == "product" && slug.current == $slug][0]{_id,  title, date, body, "image":image[].asset->url, category->{value}}`;
 
 async function Product({ slug }: TSlug) {
-  const product: any = await sanityFetch<SanityDocument[]>({
+  const product = await sanityFetch<TProduct>({
     query: PRODUCT_QUERY,
     params: { slug },
   });
@@ -62,7 +58,7 @@ async function Product({ slug }: TSlug) {
   );
 }
 
-export default function ProductDetail({ params }: ProductDetailProps) {
+export default function ProductDetail({ params }: PageProps) {
   return (
     <section>
       <Navbar />

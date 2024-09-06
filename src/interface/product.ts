@@ -1,5 +1,9 @@
 /** @format */
 
+export interface ProductCardProps {
+  data: TProduct;
+}
+
 export interface TRoutes {
   id: string;
   href: string;
@@ -18,4 +22,9 @@ export interface TProduct {
   title: string;
   preview: string;
   image: string[];
+  date: string;
+  body: string;
+  category: {
+    value: string;
+  };
 }

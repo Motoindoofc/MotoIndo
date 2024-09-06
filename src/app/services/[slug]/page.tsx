@@ -6,17 +6,13 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 
 import { TArticle } from "@/interface/article";
-import { TSlug } from "@/interface/page";
+import { PageProps, TSlug } from "@/interface/page";
 import sanityFetch from "@/sanity/client";
 import Footer from "@/shared/Footer";
 import Navbar from "@/shared/Navbar";
 import SanityPortableText from "@/shared/SanityPortableText";
 
 import ArticleDetailSkeleton from "./ArticleDetailSkeleton";
-
-interface IServiceDetail {
-  params: TSlug;
-}
 
 const ARTICLE_QUERY = `*[_type == "article" && slug.current == $slug][0]{_id,  title, excerpt, publishedAt, body, "mainImage":mainImage.asset->url}`;
 
@@ -70,7 +66,7 @@ async function Article({ slug }: TSlug) {
   );
 }
 
-export default function ServiceDetail({ params }: IServiceDetail) {
+export default function ServiceDetail({ params }: PageProps) {
   return (
     <section>
       <Navbar />
