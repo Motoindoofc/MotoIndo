@@ -6,15 +6,21 @@ import { useEffect } from "react";
 import Image from "next/image";
 
 import WAIcon from "@/assets/icons/wa-icon-white.svg";
+import { TString } from "@/interface/page";
 
-export default function FixedButton() {
+export default function FixedButton({ itemName }: TString) {
   const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER;
+  const message = process.env.NEXT_PUBLIC_MESSAGE_TEMPLATE;
 
   const routeToWhatsApp = () => {
     if (!phoneNumber) return;
 
-    const text = `https://wa.me/${phoneNumber}`;
-    window.open(text, "_blank");
+    const text = `?text=${message?.replace("[item]", itemName)}`;
+    const whatsappLink = `https://wa.me/[number]${message ? text : ""}`.replace(
+      "[number]",
+      phoneNumber
+    );
+    window.open(whatsappLink, "_blank");
   };
 
   useEffect(() => {

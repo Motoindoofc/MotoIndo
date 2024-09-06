@@ -51,7 +51,7 @@ async function Product({ slug }: TSlug) {
           <button className="rounded-lg h-[72px] text-[1.25rem] py-[18px] text-n-100 font-semibold w-full flex items-center justify-center bg-[#0EA46D] gap-3 sm:hidden">
             <Image src={WAIcon} alt="wa-icon" /> Order Via Whatsapp
           </button>
-          <FixedButton />
+          <FixedButton itemName={product.title} />
         </div>
       </div>
     </div>
