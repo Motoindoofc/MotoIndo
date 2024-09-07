@@ -5,14 +5,14 @@ export interface ProductCardProps {
 }
 
 export interface TRoutes {
-  id: string;
+  _id: string;
   href: string;
   name: string;
 }
 
 export interface TCategory {
-  id: string;
-  href: string;
+  _id: string;
+  value: string;
   name: string;
 }
 

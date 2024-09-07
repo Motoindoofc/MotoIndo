@@ -7,21 +7,18 @@ import Link from "next/link";
 import { TString } from "@/interface/page";
 import { TCategory, TProduct, TRoutes } from "@/interface/product";
 import sanityFetch from "@/sanity/client";
-import { SanityDocument } from "@sanity/client";
 
 import ProductCard from "../ProductCard";
 import ProductSkeletons from "../ProductSkeletons";
-
-// Define the custom types based on your Sanity data structure
 
 const CATEGORIES_QUERY = `*[_type == "category"]{_id, value, name, date}|order(date asc)`;
 
 const PRODUCTS_QUERY = `*[_type == "product" && ($category == "" || category._ref == $category)]{_id, title, slug, category, preview, "image":image[].asset->url}|order(date desc)`;
 
-async function ProductList({ category }: { category: TCategory }) {
+async function ProductList({ category }: { category: TRoutes }) {
   const products = await sanityFetch<TProduct[]>({
     query: PRODUCTS_QUERY,
-    params: { category: category.id || "" },
+    params: { category: category._id === "all" ? "" : category._id },
   });
 
   return (
@@ -42,19 +39,19 @@ async function ProductList({ category }: { category: TCategory }) {
 }
 
 export default async function ProductCategories({ currentCategory }: TString) {
-  const categoriesFetch = await sanityFetch<SanityDocument[]>({
+  const categoriesFetch = await sanityFetch<TCategory[]>({
     query: CATEGORIES_QUERY,
   });
 
   const formattedCategories: TRoutes[] = categoriesFetch.map((category) => ({
-    id: category._id || "",
+    _id: category._id || "",
     href: `/${category.value || ""}`,
     name: category.name || "Unnamed Category",
   }));
 
   const categories: TRoutes[] = [
     {
-      id: "",
+      _id: "all",
       href: "",
       name: "Semua Produk",
     },
@@ -64,7 +61,7 @@ export default async function ProductCategories({ currentCategory }: TString) {
   let currentFormattedCategory: TRoutes =
     categories.find(
       (category) => category.href.replace("/", "") === currentCategory
-    ) || categories[0]; // Default to the first category if none match
+    ) || categories[0];
 
   return (
     <>
