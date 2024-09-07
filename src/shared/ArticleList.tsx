@@ -1,15 +1,15 @@
 /** @format */
 
-import { Suspense } from 'react';
+import { Suspense } from "react";
 
-import Link from 'next/link';
+import Link from "next/link";
 
-import ArticleSkeletons from '@/app/services/ArticleSkeletons';
-import sanityFetch from '@/sanity/client';
-import { SanityDocument } from '@sanity/client';
+import ArticleSkeletons from "@/app/services/ArticleSkeletons";
+import sanityFetch from "@/sanity/client";
+import { SanityDocument } from "@sanity/client";
 
-import Button from './Button';
-import ImageLoader from './ImageLoader';
+import Button from "./Button";
+import ImageLoader from "./ImageLoader";
 
 interface IList {
   isFull: boolean;
@@ -24,8 +24,9 @@ function CardArticle({ data }: any) {
   return (
     <Link
       href={`/services/${data.slug.current}`}
-      className="cursor-pointer rounded-2xl overflow-hidden	w-[360px] h-[460px] max-w-full"
-      style={{ boxShadow: "0px 4px 25.1px 0px rgba(0, 0, 0, 0.09)" }}>
+      className="h-[460px] w-[360px] max-w-full cursor-pointer overflow-hidden rounded-2xl"
+      style={{ boxShadow: "0px 4px 25.1px 0px rgba(0, 0, 0, 0.09)" }}
+    >
       <ImageLoader
         imageURL={data.mainImage}
         alt={data.title}
@@ -33,7 +34,7 @@ function CardArticle({ data }: any) {
         height={400}
         className="h-[260px] w-full object-cover"
       />
-      <p className="p-[24px] text-n-800 text-[1.5rem] font-semibold sm:text-[1.25rem]">
+      <p className="text-n-800 p-[24px] text-[1.5rem] font-semibold sm:text-[1.25rem]">
         {data.title}
       </p>
     </Link>
@@ -68,10 +69,10 @@ async function List({ isFull }: IList) {
 export default async function ArticleList({ isFull = false }: IArticleList) {
   return (
     <section className="inner-wrapper mt-[160px] sm:px-[1rem]">
-      <p className="font-bold text-[2.5rem] text-center sm:text-[1.5rem]">
+      <p className="text-center text-[2.5rem] font-bold sm:text-[1.5rem]">
         Sejak 2008 berkontribusi dalam keamanan
       </p>
-      <p className="mt-[16px] mb-[64px] text-[1.25rem] sm:text-[0.75rem]">
+      <p className="mb-[64px] mt-[16px] text-[1.25rem] sm:text-[0.75rem]">
         Lihat proyek terbaru kami
       </p>
 

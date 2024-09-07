@@ -1,17 +1,17 @@
 /** @format */
 
-import { StaticImageData } from 'next/image';
+import { StaticImageData } from "next/image";
 
-import serviceIcon1 from '@/assets/icons/service-1-icon.svg';
-import serviceIcon2 from '@/assets/icons/service-2-icon.svg';
-import serviceIcon3 from '@/assets/icons/service-3-icon.svg';
-import serviceIcon4 from '@/assets/icons/service-4-icon.svg';
-import serviceIcon5 from '@/assets/icons/service-5-icon.svg';
-import serviceImage1 from '@/assets/images/service-1-img.jpg';
-import serviceImage2 from '@/assets/images/service-2-img.jpg';
-import serviceImage3 from '@/assets/images/service-3-img.png';
-import serviceImage4 from '@/assets/images/service-4-img.jpg';
-import serviceImage5 from '@/assets/images/service-5-img.jpg';
+import serviceIcon1 from "@/assets/icons/service-1-icon.svg";
+import serviceIcon2 from "@/assets/icons/service-2-icon.svg";
+import serviceIcon3 from "@/assets/icons/service-3-icon.svg";
+import serviceIcon4 from "@/assets/icons/service-4-icon.svg";
+import serviceIcon5 from "@/assets/icons/service-5-icon.svg";
+import serviceImage1 from "@/assets/images/service-1-img.jpg";
+import serviceImage2 from "@/assets/images/service-2-img.jpg";
+import serviceImage3 from "@/assets/images/service-3-img.png";
+import serviceImage4 from "@/assets/images/service-4-img.jpg";
+import serviceImage5 from "@/assets/images/service-5-img.jpg";
 
 export interface TServiceDetails {
   id: number;

@@ -1,30 +1,27 @@
 /** @format */
 
-import { Suspense } from 'react';
+import { Suspense } from "react";
 
-import Image from 'next/image';
+import Image from "next/image";
 
-import {
-  serviceDetails,
-  serviceLists,
-} from '@/data';
-import Achievement from '@/shared/Achievement';
-import ArticleList from '@/shared/ArticleList';
-import Footer from '@/shared/Footer';
-import Navbar from '@/shared/Navbar';
-import ServiceAccordion from '@/shared/ServiceAccordion';
+import { serviceDetails, serviceLists } from "@/data";
+import Achievement from "@/shared/Achievement";
+import ArticleList from "@/shared/ArticleList";
+import Footer from "@/shared/Footer";
+import Navbar from "@/shared/Navbar";
+import ServiceAccordion from "@/shared/ServiceAccordion";
 
-import ServiceArticleScrollHandler from './ServerArticleScrollHandler';
+import ServiceArticleScrollHandler from "./ServerArticleScrollHandler";
 
 export default function Services() {
   return (
     <section>
       <Navbar />
       <div className="outer-wrapper">
-        <div className="w-full bg-b-gradient-2 px-[96px] py-[80px] flex justify-center sm:flex-col sm:p-[1rem]">
-          <div className="w-[1440px] flex justify-between items-center gap-6 max-w-full sm:flex-col">
-            <div className="w-[636px] flex flex-col gap-8 sm:w-auto">
-              <p className="text-n-100 font-bold text-[4rem] leading-tight sm:text-[2rem] mt-[2.25rem]">
+        <div className="bg-b-gradient-2 flex w-full justify-center px-[96px] py-[80px] sm:flex-col sm:p-[1rem]">
+          <div className="flex w-[1440px] max-w-full items-center justify-between gap-6 sm:flex-col">
+            <div className="flex w-[636px] flex-col gap-8 sm:w-auto">
+              <p className="text-n-100 mt-[2.25rem] text-[4rem] font-bold leading-tight sm:text-[2rem]">
                 Layanan fleksible menyesuaikan kebutuhan Anda
               </p>
               <p className="text-n-100 text-[1.5rem] sm:text-[0.875rem]">
@@ -43,18 +40,19 @@ export default function Services() {
           {serviceLists.map((service, i) => (
             <div
               key={i}
-              className="mt-[92px] flex flex-col items-center gap-10">
-              <p className="flex gap-5 text-n-900 font-semibold text-[2rem]">
+              className="mt-[92px] flex flex-col items-center gap-10"
+            >
+              <p className="text-n-900 flex gap-5 text-[2rem] font-semibold">
                 <Image src={service.image} alt={service.title} />
                 {service.title}
               </p>
-              <div className="w-[1040px] flex gap-[40px] p-[48px] bg-b-200 h-[448px] rounded-3xl">
+              <div className="bg-b-200 flex h-[448px] w-[1040px] gap-[40px] rounded-3xl p-[48px]">
                 <div className="flex flex-col justify-center gap-[12px]">
-                  <p className="text-n-900 font-semibold text-[1.5rem]">
+                  <p className="text-n-900 text-[1.5rem] font-semibold">
                     {serviceDetails[i].title}
                   </p>
                   <div
-                    className="leading-8 text-[1rem] text-n-800"
+                    className="text-n-800 text-[1rem] leading-8"
                     dangerouslySetInnerHTML={{
                       __html: serviceDetails[i].description,
                     }}
@@ -71,7 +69,7 @@ export default function Services() {
           ))}
         </div>
       </div>
-      <div className="hidden sm:block bg-n-200">
+      <div className="bg-n-200 hidden sm:block">
         <ServiceAccordion />
       </div>
       <div className="outer-wrapper" id="service-article">

@@ -19,10 +19,10 @@ export default function NotFound() {
             src={NotFoundIcon}
             alt="not-found-icon"
           />
-          <p className="mt-[94px] font-semibold text-[2.25rem] text-n-900">
+          <p className="text-n-900 mt-[94px] text-[2.25rem] font-semibold">
             Ups! Halaman Tidak Ditemukan
           </p>
-          <p className="text-[1.5rem] text-n-900">
+          <p className="text-n-900 text-[1.5rem]">
             Sepertinya halaman yang Anda cari tidak ada atau telah dipindahkan.
           </p>
           <Link href="/" className="mt-[48px]">

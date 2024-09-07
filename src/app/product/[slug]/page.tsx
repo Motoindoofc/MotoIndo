@@ -31,24 +31,24 @@ async function Product({ slug }: TSlug) {
   }
 
   return (
-    <div className="py-[36px] outer-wrapper sm:px-[1rem]">
+    <div className="outer-wrapper py-[36px] sm:px-[1rem]">
       <div className="inner-wrapper !items-start">
         <GoBack category={product.category.value} />
       </div>
-      <div className="inner-wrapper mt-[20px] !flex-row !items-start flex gap-8 w-full sm:!flex-col">
-        <h1 className="hidden sm:block font-semibold text-[1.5rem]">
+      <div className="inner-wrapper mt-[20px] flex w-full !flex-row !items-start gap-8 sm:!flex-col">
+        <h1 className="hidden text-[1.5rem] font-semibold sm:block">
           {product.title}
         </h1>
         <ProductDetailImage imageURL={product.image} />
-        <div className="w-[50%] h-[698px] flex flex-col gap-3 sm:w-full sm:h-auto">
-          <h1 className="font-semibold text-[2.25rem] sm:hidden">
+        <div className="flex h-[698px] w-[50%] flex-col gap-3 sm:h-auto sm:w-full">
+          <h1 className="text-[2.25rem] font-semibold sm:hidden">
             {product.title}
           </h1>
-          <h2 className="font-semibold text-n-700 text-[1rem]">Description</h2>
+          <h2 className="text-n-700 text-[1rem] font-semibold">Description</h2>
           <div className="h-[520px] overflow-y-auto sm:h-auto">
             <SanityPortableText value={product.body} />,
           </div>
-          <button className="rounded-lg h-[72px] text-[1.25rem] py-[18px] text-n-100 font-semibold w-full flex items-center justify-center bg-[#0EA46D] gap-3 sm:hidden">
+          <button className="text-n-100 flex h-[72px] w-full items-center justify-center gap-3 rounded-lg bg-[#0EA46D] py-[18px] text-[1.25rem] font-semibold sm:hidden">
             <Image src={WAIcon} alt="wa-icon" /> Order Via Whatsapp
           </button>
           <FixedButton itemName={product.title} />

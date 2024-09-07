@@ -1,19 +1,19 @@
 /** @format */
 
-import Image from 'next/image';
+import Image from "next/image";
 
-import ArrowRight from '@/assets/icons/arrow-right-icon.svg';
-import IntegratedIcon from '@/assets/icons/integrated-icon.svg';
-import SignatureIcon1 from '@/assets/icons/signature-icon-1.svg';
-import SignatureIcon2 from '@/assets/icons/signature-icon-2.svg';
-import SignatureIcon3 from '@/assets/icons/signature-icon-3.svg';
-import ArticleList from '@/shared/ArticleList';
-import Button from '@/shared/Button';
-import Footer from '@/shared/Footer';
-import Navbar from '@/shared/Navbar';
-import ServiceAccordion from '@/shared/ServiceAccordion';
+import ArrowRight from "@/assets/icons/arrow-right-icon.svg";
+import IntegratedIcon from "@/assets/icons/integrated-icon.svg";
+import SignatureIcon1 from "@/assets/icons/signature-icon-1.svg";
+import SignatureIcon2 from "@/assets/icons/signature-icon-2.svg";
+import SignatureIcon3 from "@/assets/icons/signature-icon-3.svg";
+import ArticleList from "@/shared/ArticleList";
+import Button from "@/shared/Button";
+import Footer from "@/shared/Footer";
+import Navbar from "@/shared/Navbar";
+import ServiceAccordion from "@/shared/ServiceAccordion";
 
-import HomeService from './HomeService';
+import HomeService from "./HomeService";
 
 function HeroBackgroundVideo() {
   return (
@@ -25,7 +25,7 @@ function HeroBackgroundVideo() {
 
 function IntegratedBackgroundVideo() {
   return (
-    <video autoPlay muted loop className="w-[538px] aspect-square">
+    <video autoPlay muted loop className="aspect-square w-[538px]">
       <source src="/videos/integrated-animation.mp4" type="video/mp4" />
     </video>
   );
@@ -58,11 +58,11 @@ export default function Home() {
       <Navbar />
       <div className="outer-wrapper">
         <header className="inner-wrapper py-[64px]">
-          <h1 className="font-bold text-center text-[4rem] sm:text-[2rem]">
+          <h1 className="text-center text-[4rem] font-bold sm:text-[2rem]">
             Membangun Ekosistem Keamanan{" "}
             <span className="text-b-600">Terintegrasi</span>
           </h1>
-          <h2 className="mt-[4px] text-center text-[1.5rem] text-n-700 sm:text-[0.8rem] ">
+          <h2 className="text-n-700 mt-[4px] text-center text-[1.5rem] sm:text-[0.8rem]">
             MotoIndo membangun ekosistem teknologi keamanan Komunikasi, CCTV,
             dan Sensor yang terintegrasi serta komprehensif untuk berbagai
             industri.
@@ -73,10 +73,10 @@ export default function Home() {
           <HeroBackgroundVideo />
         </header>
         <section className="inner-wrapper">
-          <h1 className="text-b-800 font-bold text-[2.25rem] text-center max-w-[960px] sm:text-[1.25rem]">
+          <h1 className="text-b-800 max-w-[960px] text-center text-[2.25rem] font-bold sm:text-[1.25rem]">
             Implementasi keamanan <br /> dalam perkembangan industri 4.0
           </h1>
-          <h2 className="mt-[24px] text-center text-n-700 text-[1.25rem] sm:text-[0.75rem]">
+          <h2 className="text-n-700 mt-[24px] text-center text-[1.25rem] sm:text-[0.75rem]">
             Platform all-in-one menghubungkan 3 pilar keamanan secara terpusat,
             meningkatkan keamanan <br /> dan efisiensi industri
           </h2>
@@ -84,22 +84,23 @@ export default function Home() {
             {signatures.map((signature, i) => (
               <div
                 key={i}
-                className="p-[24px] w-[360px] rounded-[12px] bg-b-100 flex flex-col items-center">
+                className="bg-b-100 flex w-[360px] flex-col items-center rounded-[12px] p-[24px]"
+              >
                 <Image src={signature.image} alt={signature.title} />
-                <p className="text-b-600 font-bold mt-[12px] mb-[8px] sm:text-[1rem]">
+                <p className="text-b-600 mb-[8px] mt-[12px] font-bold sm:text-[1rem]">
                   {signature.title}
                 </p>
-                <p className="text-n-700 text-[1rem] text-center sm:text-[0.75rem]">
+                <p className="text-n-700 text-center text-[1rem] sm:text-[0.75rem]">
                   {signature.description}
                 </p>
               </div>
             ))}
           </div>
         </section>
-        <section className="mt-[160px] w-full justify-between bg-b-200 flex sm:flex-col">
-          <div className="flex flex-col pl-[96px] py-[64px] pr-[40px] sm:py-[1.5rem] sm:px-[1rem] sm:gap-6">
+        <section className="bg-b-200 mt-[160px] flex w-full justify-between sm:flex-col">
+          <div className="flex flex-col py-[64px] pl-[96px] pr-[40px] sm:gap-6 sm:px-[1rem] sm:py-[1.5rem]">
             <Image src={IntegratedIcon} alt="integrated" />
-            <h1 className="mt-[60px] mb-[36px] text-b-600 text-[3rem] font-semibold sm:text-[1.25rem] sm:mt-0 sm:mb-0">
+            <h1 className="text-b-600 mb-[36px] mt-[60px] text-[3rem] font-semibold sm:mb-0 sm:mt-0 sm:text-[1.25rem]">
               Terintegrasi & Desentralisasi
             </h1>
             <h2 className="text-n-700 text-[1.25rem] sm:text-[0.75rem]">
@@ -108,11 +109,11 @@ export default function Home() {
               <br />
               tercipta lingkungan yang lebih aman.
             </h2>
-            <p className="cursor-pointer mt-[60px] gap-[10px] text-[#4B65DB] text-[1.5rem] flex items-center sm:text-[0.875rem] sm:mt-0">
+            <p className="mt-[60px] flex cursor-pointer items-center gap-[10px] text-[1.5rem] text-[#4B65DB] sm:mt-0 sm:text-[0.875rem]">
               Pelajari Lebih Lanjut <Image src={ArrowRight} alt="arrow-right" />
             </p>
           </div>
-          <div className="bg-b-600 flex items-center xl:w-[538px] justify-center w-full">
+          <div className="bg-b-600 flex w-full items-center justify-center xl:w-[538px]">
             <IntegratedBackgroundVideo />
           </div>
         </section>

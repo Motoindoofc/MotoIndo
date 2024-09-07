@@ -39,16 +39,16 @@ async function Article({ slug }: TSlug) {
 
   return (
     <div className="outer-wrapper">
-      <div className="inner-wrapper py-[64px] flex flex-col gap-9 !w-[1156px] sm:px-[1rem]">
-        <h1 className="text-[4rem] font-semibold text-center sm:text-[2rem]">
+      <div className="inner-wrapper flex !w-[1156px] flex-col gap-9 py-[64px] sm:px-[1rem]">
+        <h1 className="text-center text-[4rem] font-semibold sm:text-[2rem]">
           {article.title}
         </h1>
-        <h2 className="text-n-700 text-[1.5rem] text-center sm:text-[1rem]">
+        <h2 className="text-n-700 text-center text-[1.5rem] sm:text-[1rem]">
           {article.excerpt}
         </h2>
         <p className="text-n-700">{formattedDate}</p>
       </div>
-      <div className="mt-[64px] inner-wrapper !w-[1156px] sm:px-[1rem]">
+      <div className="inner-wrapper mt-[64px] !w-[1156px] sm:px-[1rem]">
         <Image
           src={article.mainImage}
           className="w-full rounded-3xl"

@@ -29,8 +29,9 @@ export default function GoBack({ category }: TString) {
 
   return (
     <p
-      className="cursor-pointer flex items-center font-semibold  gap-2 text-[1.25rem] text-b-600 sm:text-[0.875rem]"
-      onClick={handleGoBack}>
+      className="text-b-600 flex cursor-pointer items-center gap-2 text-[1.25rem] font-semibold sm:text-[0.875rem]"
+      onClick={handleGoBack}
+    >
       <Image src={ChevronLeft} alt="cheveon-left" />
       Kembali ke halaman Produk
     </p>

@@ -18,7 +18,7 @@ export default function FixedButton({ itemName }: TString) {
     const text = `?text=${message?.replace("[item]", itemName)}`;
     const whatsappLink = `https://wa.me/[number]${message ? text : ""}`.replace(
       "[number]",
-      phoneNumber
+      phoneNumber,
     );
     window.open(whatsappLink, "_blank");
   };
@@ -26,7 +26,7 @@ export default function FixedButton({ itemName }: TString) {
   useEffect(() => {
     // Get the button and footer elements, cast them to HTMLElement
     const button = document.querySelector(
-      ".fixed-button"
+      ".fixed-button",
     ) as HTMLElement | null;
     const footer = document.getElementById("footer") as HTMLElement | null;
 
@@ -62,10 +62,11 @@ export default function FixedButton({ itemName }: TString) {
   }, []);
 
   return (
-    <div className="mt-[100px] button-container relative">
+    <div className="button-container relative mt-[100px]">
       <button
-        className="fixed-button fixed bottom-[40px] right-[50%] translate-x-[50%] items-center justify-center rounded-[72px] h-[72px] w-[312px] font-bold text-n-100 bg-[#0EA46D] text-[1.25rem] gap-3 hidden sm:flex"
-        onClick={routeToWhatsApp}>
+        className="fixed-button text-n-100 fixed bottom-[40px] right-[50%] hidden h-[72px] w-[312px] translate-x-[50%] items-center justify-center gap-3 rounded-[72px] bg-[#0EA46D] text-[1.25rem] font-bold sm:flex"
+        onClick={routeToWhatsApp}
+      >
         <Image src={WAIcon} alt="wa-icon" /> Contact Via Whatsapp
       </button>
     </div>

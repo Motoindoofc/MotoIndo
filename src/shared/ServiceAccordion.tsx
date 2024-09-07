@@ -1,20 +1,12 @@
 /** @format */
 "use client";
 
-import {
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { useEffect, useRef, useState } from "react";
 
-import Image from 'next/image';
+import Image from "next/image";
 
-import ChevronRight from '@/assets/icons/chevron-right.svg';
-import {
-  serviceDetails,
-  serviceLists,
-  TServiceDetails,
-} from '@/data';
+import ChevronRight from "@/assets/icons/chevron-right.svg";
+import { serviceDetails, serviceLists, TServiceDetails } from "@/data";
 
 export default function ServiceAccordion() {
   const [selectedService, setSelectedService] = useState<number | null>(1);
@@ -24,7 +16,7 @@ export default function ServiceAccordion() {
 
   const onClickService = (serviceId: number) => {
     setSelectedService((prevSelected) =>
-      prevSelected === serviceId ? null : serviceId
+      prevSelected === serviceId ? null : serviceId,
     );
   };
 
@@ -47,34 +39,35 @@ export default function ServiceAccordion() {
   }, [selectedService]);
 
   return (
-    <div className="py-[4.5rem] px-[0.75rem]">
-      <h1 className="mb-[40px] font-bold text-[2.5rem] text-n-900 text-center sm:text-[2rem]">
+    <div className="px-[0.75rem] py-[4.5rem]">
+      <h1 className="text-n-900 mb-[40px] text-center text-[2.5rem] font-bold sm:text-[2rem]">
         Layanan fleksible menyesuaikan kebutuhan Anda
       </h1>
       <div className="flex flex-col gap-4">
         {serviceLists.map((service, i) => {
           const isSelected = selectedService === service.id;
           const selectedServiceData = serviceDetails.find(
-            (s) => s.id === service.id
+            (s) => s.id === service.id,
           ) as TServiceDetails;
 
           return (
             <div
               key={i}
-              className={`w-full flex flex-col justify-start items-start rounded-xl cursor-pointer p-[1rem] ${
+              className={`flex w-full cursor-pointer flex-col items-start justify-start rounded-xl p-[1rem] ${
                 isSelected ? "bg-b-200" : "bg-white"
               }`}
               style={{
                 boxShadow:
                   "0px 2px 4px 0px rgba(15, 23, 42, 0.06), 0px 4px 6px 0px rgba(15, 23, 42, 0.10)",
               }}
-              onClick={() => onClickService(service.id)}>
+              onClick={() => onClickService(service.id)}
+            >
               <div className="flex items-center gap-2">
-                <div className="flex items-center justify-center bg-b-200 rounded-lg h-[48px] w-[48px]">
+                <div className="bg-b-200 flex h-[48px] w-[48px] items-center justify-center rounded-lg">
                   <Image src={service.image} alt={service.title} width={40} />
                 </div>
 
-                <p className="font-semibold text-n-900 text-center">
+                <p className="text-n-900 text-center font-semibold">
                   {service.title}
                 </p>
               </div>
@@ -88,23 +81,24 @@ export default function ServiceAccordion() {
                 style={{
                   maxHeight: isSelected ? "auto" : "0px",
                   transition: "max-height 0.5s ease, opacity 0.5s ease",
-                }}>
+                }}
+              >
                 <p className="text-[1.5rem] font-semibold">
                   {selectedServiceData.title}
                 </p>
                 <Image
-                  className="rounded-2xl object-cover w-full"
+                  className="w-full rounded-2xl object-cover"
                   src={selectedServiceData.image}
                   alt={selectedServiceData.title}
                 />
                 <div
-                  className="leading-8 text-[1rem] text-n-800"
+                  className="text-n-800 text-[1rem] leading-8"
                   dangerouslySetInnerHTML={{
                     __html: selectedServiceData.description,
                   }}
                 />
 
-                <p className="cursor-pointer text-b-600 font-semibold flex gap-1">
+                <p className="text-b-600 flex cursor-pointer gap-1 font-semibold">
                   Pelajari lebih lanjut
                   <Image src={ChevronRight} alt="chevron" />
                 </p>

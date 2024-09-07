@@ -44,9 +44,10 @@ function MobileNavbar({ isOpen, setIsOpen }: MobileNavbarProps) {
 
   return (
     <div
-      className={`hidden sm:flex flex-col gap-16 fixed top-0 right-0 h-full w-full bg-n-100 p-[24px] transform transition-transform duration-300 z-10 ${
+      className={`bg-n-100 fixed right-0 top-0 z-10 hidden h-full w-full transform flex-col gap-16 p-[24px] transition-transform duration-300 sm:flex ${
         isOpen ? "translate-x-0" : "translate-x-full"
-      }`}>
+      }`}
+    >
       <div className="flex justify-between">
         <p className="text-b-800 text-[1.5rem]">Menu</p>
       </div>
@@ -55,18 +56,20 @@ function MobileNavbar({ isOpen, setIsOpen }: MobileNavbarProps) {
           <p
             key={i}
             onClick={() => toLink(route.href)}
-            className={`text-[1.25rem] cursor-pointer ${
+            className={`cursor-pointer text-[1.25rem] ${
               route.href.replace("/", "") === currentPathname
-                ? "font-bold text-b-600"
+                ? "text-b-600 font-bold"
                 : "text-n-900"
-            }`}>
+            }`}
+          >
             {route.name}
           </p>
         ))}
       </div>
       <Button
         customClass="gap-3 w-full py-[16px] h-auto self-end"
-        onClick={() => goToCTA(`${pathname}#footer`)}>
+        onClick={() => goToCTA(`${pathname}#footer`)}
+      >
         <Image src={CallIcon} alt="call-icon" /> Hubungi Kami
       </Button>
     </div>
@@ -91,13 +94,14 @@ function NavbarComponent({
   return (
     <nav
       className={`${
-        isFixed ? "fixed top-0 left-0" : "relative"
-      } transform transition-all duration-200 h-[5rem] px-[96px] sm:px-[24px] bg-n-100 outer-wrapper z-20  ${
+        isFixed ? "fixed left-0 top-0" : "relative"
+      } bg-n-100 outer-wrapper z-20 h-[5rem] transform px-[96px] transition-all duration-200 sm:px-[24px] ${
         isOpen ? "!bg-transparent" : "border-b border-solid border-neutral-100"
       } ${isFixed && isScrolled ? "opacity-1 translate-y-0" : ""} ${
-        isFixed && !isScrolled ? "opacity-0 -translate-y-full" : ""
-      }`}>
-      <div className="w-[1440px] max-w-full flex items-center justify-between">
+        isFixed && !isScrolled ? "-translate-y-full opacity-0" : ""
+      }`}
+    >
+      <div className="flex w-[1440px] max-w-full items-center justify-between">
         <Image
           className={`transition ${isOpen ? "opacity-0" : ""}`}
           src={MotoindoLogo}
@@ -105,40 +109,46 @@ function NavbarComponent({
           height={36}
         />
 
-        <div className="w-[417px] px-[24px] flex justify-between sm:hidden">
+        <div className="flex w-[417px] justify-between px-[24px] sm:hidden">
           {routes.map((route, i) => (
             <Link
               key={i}
               className={`text-[1.25rem] ${
                 route.href.replace("/", "") === currentPathname
-                  ? "font-bold text-b-600"
+                  ? "text-b-600 font-bold"
                   : "text-n-900"
               }`}
-              href={route.href}>
+              href={route.href}
+            >
               {route.name}
             </Link>
           ))}
         </div>
         <Button
           customClass="gap-3 sm:hidden"
-          onClick={() => router.push(`${pathname}#footer`)}>
+          onClick={() => router.push(`${pathname}#footer`)}
+        >
           <Image src={CallIcon} alt="call-icon" /> Hubungi Kami
         </Button>
         <div
-          className="hidden sm:flex flex-col gap-1 justify-center cursor-pointer"
-          onClick={() => setIsOpen(!isOpen)}>
+          className="hidden cursor-pointer flex-col justify-center gap-1 sm:flex"
+          onClick={() => setIsOpen(!isOpen)}
+        >
           <div
-            className={`h-[2px] bg-neutral-900 w-[20px] transition-transform duration-300 ${
-              isOpen ? "transform rotate-45 translate-y-[6px]" : ""
-            }`}></div>
+            className={`h-[2px] w-[20px] bg-neutral-900 transition-transform duration-300 ${
+              isOpen ? "translate-y-[6px] rotate-45 transform" : ""
+            }`}
+          ></div>
           <div
-            className={`h-[2px] bg-neutral-900 w-[20px] transition-opacity duration-300 ${
+            className={`h-[2px] w-[20px] bg-neutral-900 transition-opacity duration-300 ${
               isOpen ? "opacity-0" : ""
-            }`}></div>
+            }`}
+          ></div>
           <div
-            className={`h-[2px] bg-neutral-900 w-[20px] transition-transform duration-300 ${
-              isOpen ? "transform -rotate-45 -translate-y-[6px]" : ""
-            }`}></div>
+            className={`h-[2px] w-[20px] bg-neutral-900 transition-transform duration-300 ${
+              isOpen ? "-translate-y-[6px] -rotate-45 transform" : ""
+            }`}
+          ></div>
         </div>
       </div>
     </nav>

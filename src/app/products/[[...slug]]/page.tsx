@@ -13,10 +13,10 @@ export default function Products({ params }: PageProps) {
     <section>
       <Navbar />
       <div className="outer-wrapper product-hero h-[28rem]">
-        <div className="w-full h-full py-[108px] px-[96px] flex justify-center sm:p-[1.5rem]">
-          <div className="w-[1440px] flex justify-between items-start gap-6 sm:max-w-full">
+        <div className="flex h-full w-full justify-center px-[96px] py-[108px] sm:p-[1.5rem]">
+          <div className="flex w-[1440px] items-start justify-between gap-6 sm:max-w-full">
             <div className="flex flex-col gap-8 sm:gap-6">
-              <h1 className="text-n-900 font-bold text-[4rem] leading-tight sm:text-[2rem]">
+              <h1 className="text-n-900 text-[4rem] font-bold leading-tight sm:text-[2rem]">
                 Dapatkan penawaran <br /> menarik di{" "}
                 <span className="text-b-600">MotoIndo</span>
               </h1>

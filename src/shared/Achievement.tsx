@@ -21,15 +21,16 @@ export default function Achievement() {
   ];
 
   return (
-    <div className="w-[600px] h-auto bg-b-900 grid grid-cols-2 gap-x-12 gap-y-7 py-[40px] px-[52px] rounded-[1.25rem] max-w-full sm:gap-y-4 sm:px-[1.5rem] sm:grid-cols-2 sm:w-full">
+    <div className="bg-b-900 grid h-auto w-[600px] max-w-full grid-cols-2 gap-x-12 gap-y-7 rounded-[1.25rem] px-[52px] py-[40px] sm:w-full sm:grid-cols-2 sm:gap-y-4 sm:px-[1.5rem]">
       {data.map((datum, i) => (
         <div
           key={i}
-          className="flex flex-col items-start text-n-100 gap-[12px]">
+          className="text-n-100 flex flex-col items-start gap-[12px]"
+        >
           <p className="text-[2.6rem] font-bold sm:text-[2.25rem]">
             {datum.qty}
           </p>
-          <p className="text-[2.25rem] font-light sm:text-[1.25rem] text-left">
+          <p className="text-left text-[2.25rem] font-light sm:text-[1.25rem]">
             {datum.name}
           </p>
         </div>

@@ -48,7 +48,7 @@ function ArrowButton({ isBack = false, scrollContainerRef }: ArrowButtonProps) {
       if (scrollContainerRef.current) {
         setIsOverflowing(
           scrollContainerRef.current.scrollWidth >
-            scrollContainerRef.current.clientWidth
+            scrollContainerRef.current.clientWidth,
         );
       }
     };
@@ -89,19 +89,20 @@ export default function ProductDetailImage({
   };
 
   return (
-    <div className="w-[50%] flex flex-col gap-4 sm:w-full">
+    <div className="flex w-[50%] flex-col gap-4 sm:w-full">
       <ImageLoader
         imageURL={selectedImage.imageURL}
         width={800}
         height={800}
-        className="w-full h-[560px] object-contain rounded-3xl border"
+        className="h-[560px] w-full rounded-3xl border object-contain"
       />
       {formattedImages.length > 1 && (
         <div className="relative flex items-center">
           <ArrowButton scrollContainerRef={scrollContainerRef} isBack />
           <div
             ref={scrollContainerRef}
-            className="h-[200px] flex gap-3 items-stretch justify-start overflow-x-auto scrollbar-hide container">
+            className="scrollbar-hide container flex h-[200px] items-stretch justify-start gap-3 overflow-x-auto"
+          >
             {formattedImages.map((image) => (
               <Image
                 key={image.id}
@@ -110,7 +111,7 @@ export default function ProductDetailImage({
                 height={200}
                 onClick={() => onClickGallery(image.id)}
                 alt="product-img"
-                className={`select-none cursor-pointer object-cover rounded-lg border ${
+                className={`cursor-pointer select-none rounded-lg border object-cover ${
                   selectedImage.id === image.id
                     ? "border-blue-400 p-1"
                     : "border-n-400"

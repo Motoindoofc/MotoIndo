@@ -13,50 +13,52 @@ export default function HomeService() {
 
   const onClickService = (serviceId: number) => {
     const newSelected = serviceDetails.find(
-      (service) => service.id === serviceId
+      (service) => service.id === serviceId,
     ) as TServiceDetails;
     setSelectedService(newSelected);
   };
 
   return (
     <div className="inner-wrapper mt-[160px]">
-      <h1 className="mb-[40px] font-bold text-[2.5rem] text-n-900 text-center">
+      <h1 className="text-n-900 mb-[40px] text-center text-[2.5rem] font-bold">
         Layanan fleksible menyesuaikan kebutuhan <br />
         Anda
       </h1>
       <div className="w-[1040px]">
-        <div className="flex gap-[8px] w-full">
+        <div className="flex w-full gap-[8px]">
           {serviceLists.map((service, i) => (
             <div
               key={i}
-              className={`w-[208px] pt-[16px] pb-[12px] flex flex-col gap-[8px] justify-center items-center rounded-t-3xl cursor-pointer ${
+              className={`flex w-[208px] cursor-pointer flex-col items-center justify-center gap-[8px] rounded-t-3xl pb-[12px] pt-[16px] ${
                 selectedService.id == service.id ? "bg-b-200" : ""
               }`}
-              onClick={() => onClickService(service.id)}>
-              <div className="p-[4px] bg-b-200 rounded-lg h-[48px] w-[48px]">
+              onClick={() => onClickService(service.id)}
+            >
+              <div className="bg-b-200 h-[48px] w-[48px] rounded-lg p-[4px]">
                 <Image src={service.image} alt={service.title} width={40} />
               </div>
-              <p className="font-semibold text-n-900 mt-[8px] text-center">
+              <p className="text-n-900 mt-[8px] text-center font-semibold">
                 {service.title}
               </p>
             </div>
           ))}
         </div>
         <div
-          className={`flex gap-[40px] p-[48px] w-full bg-b-200 h-[448px] rounded-3xl ${
+          className={`bg-b-200 flex h-[448px] w-full gap-[40px] rounded-3xl p-[48px] ${
             selectedService.id === 1 ? "rounded-tl-none" : ""
-          } ${selectedService.id === 5 ? "rounded-tr-none" : ""}`}>
+          } ${selectedService.id === 5 ? "rounded-tr-none" : ""}`}
+        >
           <div className="flex flex-col justify-center gap-[12px]">
-            <p className="text-n-900 font-semibold text-[1.5rem]">
+            <p className="text-n-900 text-[1.5rem] font-semibold">
               {selectedService.title}
             </p>
             <div
-              className="leading-8 text-[1rem] text-n-800"
+              className="text-n-800 text-[1rem] leading-8"
               dangerouslySetInnerHTML={{
                 __html: selectedService.description,
               }}
             />
-            <p className="cursor-pointer text-b-600 font-semibold flex gap-1">
+            <p className="text-b-600 flex cursor-pointer gap-1 font-semibold">
               Pelajari lebih lanjut
               <Image src={ChevronRight} alt="chevron" />
             </p>

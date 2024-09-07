@@ -22,8 +22,8 @@ async function ProductList({ category }: { category: TRoutes }) {
   });
 
   return (
-    <div className="inner-wrapper min-h-[500px] flex items-center justify-start sm:!justify-center sm:px-[0.5rem]">
-      <div className="w-[1216px] max-w-full flex flex-wrap sm:w-full sm:justify-center">
+    <div className="inner-wrapper flex min-h-[500px] items-center justify-start sm:!justify-center sm:px-[0.5rem]">
+      <div className="flex w-[1216px] max-w-full flex-wrap sm:w-full sm:justify-center">
         {products.length === 0 ? (
           <div>No product yet</div>
         ) : (
@@ -60,29 +60,29 @@ export default async function ProductCategories({ currentCategory }: TString) {
 
   let currentFormattedCategory: TRoutes =
     categories.find(
-      (category) => category.href.replace("/", "") === currentCategory
+      (category) => category.href.replace("/", "") === currentCategory,
     ) || categories[0];
 
   return (
     <>
       <div className="outer-wrapper sm:px-[1rem]">
         <div
-          className="mt-[48px] h-[76px] py-[12px] px-[64px] w-[1180px] bg-n-100 rounded-xl gap-16
-          flex items-center justify-between sm:px-[1rem] sm:w-full sm:h-auto
-          sm:grid sm:grid-cols-2 sm:gap-4"
+          className="bg-n-100 mt-[48px] flex h-[76px] w-[1180px] items-center justify-between gap-16 rounded-xl px-[64px] py-[12px] sm:grid sm:h-auto sm:w-full sm:grid-cols-2 sm:gap-4 sm:px-[1rem]"
           style={{
             boxShadow: "0px 5px 12px 2px rgba(0, 0, 0, 0.08)",
-          }}>
+          }}
+        >
           {categories.map((category, i) => (
             <Link
               key={i}
               href={`/products${category.href}`}
-              className={`cursor-pointer h-[52px] py-[16px] px-[24px] rounded-lg font-semibold uppercase sm:w-auto sm:text-[0.75rem] sm:h-auto sm:py-[0.5rem] ${
+              className={`h-[52px] cursor-pointer rounded-lg px-[24px] py-[16px] font-semibold uppercase sm:h-auto sm:w-auto sm:py-[0.5rem] sm:text-[0.75rem] ${
                 currentCategory === category.href.replace("/", "")
                   ? "bg-b-500 text-n-100"
                   : "text-n-700"
               }`}
-              scroll={false}>
+              scroll={false}
+            >
               {category.name}
             </Link>
           ))}

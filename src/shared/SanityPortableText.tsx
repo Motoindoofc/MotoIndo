@@ -35,13 +35,14 @@ const components: PortableTextReactComponents = {
 
         return (
           <iframe
-            className="mt-[20px] w-full aspect-video"
+            className="mt-[20px] aspect-video w-full"
             src={youtubeURL}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen></iframe>
+            allowFullScreen
+          ></iframe>
         );
       }
     },
@@ -57,7 +58,8 @@ const components: PortableTextReactComponents = {
           marginTop: "10px",
           paddingLeft: "30px",
           listStyleType: "disc",
-        }}>
+        }}
+      >
         {children}
       </ul>
     ),
@@ -67,7 +69,8 @@ const components: PortableTextReactComponents = {
           marginTop: "10px",
           paddingLeft: "30px",
           listStyleType: "decimal",
-        }}>
+        }}
+      >
         {children}
       </ol>
     ),
