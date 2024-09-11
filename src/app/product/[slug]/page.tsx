@@ -17,7 +17,10 @@ import SanityPortableText from '@/shared/SanityPortableText';
 
 import ProductSkeleton from '../ProductSkeleton';
 import GoBack from './GoBack';
-import FixedButton, { StaticButton } from './WhatsappButton';
+import {
+  FixedButton,
+  StaticButton,
+} from './WhatsappButton';
 
 const PRODUCT_QUERY = `*[_type == "product" && slug.current == $slug][0]{_id,  title, date, body, "image":image[].asset->url, category->{value}}`;
 

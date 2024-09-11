@@ -1,16 +1,22 @@
 /** @format */
 "use client";
 
-import { useEffect, useState } from "react";
+import {
+  useEffect,
+  useState,
+} from 'react';
 
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import Image from 'next/image';
+import Link from 'next/link';
+import {
+  usePathname,
+  useRouter,
+} from 'next/navigation';
 
-import CallIcon from "@/assets/icons/call-icon.svg";
-import MotoindoLogo from "@/assets/logo/motoindo-nav-logo.png";
+import CallIcon from '@/assets/icons/call-icon.svg';
+import MotoindoLogo from '@/assets/logo/motoindo-nav-logo.png';
 
-import Button from "./Button";
+import Button from './Button';
 
 const routes = [
   { name: "Beranda", href: "/" },
@@ -95,13 +101,13 @@ function NavbarComponent({
     <nav
       className={`${
         isFixed ? "fixed left-0 top-0" : "relative"
-      } bg-n-100 outer-wrapper z-20 h-[5rem] transform px-[96px] transition-all duration-200 sm:px-[24px] ${
+      } bg-n-100 outer-wrapper z-20 h-[5rem] transform transition-all duration-200 sm:px-[24px] ${
         isOpen ? "!bg-transparent" : "border-b border-solid border-neutral-100"
       } ${isFixed && isScrolled ? "opacity-1 translate-y-0" : ""} ${
         isFixed && !isScrolled ? "-translate-y-full opacity-0" : ""
       }`}
     >
-      <div className="flex w-[1440px] max-w-full items-center justify-between">
+      <div className="flex w-[1440px] max-w-full items-center justify-between px-[1rem]">
         <Image
           className={`transition ${isOpen ? "opacity-0" : ""}`}
           src={MotoindoLogo}

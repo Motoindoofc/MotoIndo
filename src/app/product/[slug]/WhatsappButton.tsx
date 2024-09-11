@@ -10,7 +10,7 @@ import { TString } from '@/interface/page';
 
 import routeToWhatsApp from './util';
 
-export default function FixedButton({ itemName }: TString) {
+export function FixedButton({ itemName }: TString) {
   useEffect(() => {
     // Get the button and footer elements, cast them to HTMLElement
     const button = document.querySelector(
