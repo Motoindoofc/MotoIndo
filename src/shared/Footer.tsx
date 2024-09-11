@@ -1,15 +1,18 @@
 /** @format */
 
-import Image from "next/image";
+import Image from 'next/image';
 
-import EmailIcon from "@/assets/icons/email-icon.svg";
-import WAIcon from "@/assets/icons/wa-icon.svg";
-import CTAImage from "@/assets/images/footer-img.png";
-import MotoIndo from "@/assets/logo/motoindo-footer-logo.svg";
+import EmailIcon from '@/assets/icons/email-icon.svg';
+import WAIcon from '@/assets/icons/wa-icon.svg';
+import CTAImage from '@/assets/images/footer-img.png';
+import MotoIndo from '@/assets/logo/motoindo-footer-logo.svg';
 
-import Achievement from "./Achievement";
+import Achievement from './Achievement';
 
 function ContactSection() {
+  const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER;
+  const email = process.env.NEXT_PUBLIC_EMAIL;
+
   return (
     <>
       <p className="text-n-100 w-[60%] text-[3rem] font-semibold sm:w-full sm:text-center sm:text-[1.75rem]">
@@ -19,13 +22,13 @@ function ContactSection() {
         <div className="bg-n-100 flex h-[64px] w-[500px] max-w-full items-center justify-center gap-4 rounded-2xl py-[16px] sm:w-auto sm:gap-2 sm:px-[24px]">
           <Image src={EmailIcon} alt="email-icon" />
           <p className="text-b-700 text-[1.5rem] font-semibold">
-            contact@motoindo.id
+            {email}
           </p>
         </div>
         <div className="bg-n-100 flex h-[64px] w-[500px] max-w-full items-center justify-center gap-4 rounded-2xl py-[16px] sm:w-auto sm:gap-2 sm:px-[24px]">
           <Image src={WAIcon} alt="wa-icon" />
           <p className="text-b-700 text-[1.5rem] font-semibold">
-            +62 812 5643 9012
+            {phoneNumber}
           </p>
         </div>
       </div>

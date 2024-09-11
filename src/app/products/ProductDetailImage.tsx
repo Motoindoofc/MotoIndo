@@ -1,14 +1,18 @@
 /** @format */
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
-import Image from "next/image";
+import Image from 'next/image';
 
-import ArrowBack from "@/assets/icons/arrow-back.svg";
-import ArrowForward from "@/assets/icons/arrow-forward.svg";
-import { ArrowButtonProps } from "@/interface/product";
-import ImageLoader from "@/shared/ImageLoader";
+import ArrowBack from '@/assets/icons/arrow-back.svg';
+import ArrowForward from '@/assets/icons/arrow-forward.svg';
+import { ArrowButtonProps } from '@/interface/product';
+import ImageLoader from '@/shared/ImageLoader';
 
 function ArrowButton({ isBack = false, scrollContainerRef }: ArrowButtonProps) {
   const [isOverflowing, setIsOverflowing] = useState(false);
@@ -94,7 +98,7 @@ export default function ProductDetailImage({
         imageURL={selectedImage.imageURL}
         width={800}
         height={800}
-        className="h-[560px] w-full rounded-3xl border object-contain"
+        className="h-[560px] w-full rounded-3xl border object-contain bg-white"
       />
       {formattedImages.length > 1 && (
         <div className="relative flex items-center">
