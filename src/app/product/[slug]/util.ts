@@ -6,7 +6,7 @@ const routeToWhatsApp = (itemName: string) => {
 
   if (!phoneNumber) return;
 
-  phoneNumber = phoneNumber.replace(" ", "");
+  phoneNumber = phoneNumber.replace(/\s+/g, "");
 
   const text = `?text=${message?.replace("[item]", itemName)}`;
   const whatsappLink = `https://wa.me/[number]${message ? text : ""}`.replace(
