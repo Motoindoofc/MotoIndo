@@ -1,26 +1,20 @@
 /** @format */
 
-import { Suspense } from 'react';
+import { Suspense } from "react";
 
-import { redirect } from 'next/navigation';
+import { redirect } from "next/navigation";
 
-import ProductDetailImage from '@/app/products/ProductDetailImage';
-import {
-  PageProps,
-  TSlug,
-} from '@/interface/page';
-import { TProduct } from '@/interface/product';
-import sanityFetch from '@/sanity/client';
-import Footer from '@/shared/Footer';
-import Navbar from '@/shared/Navbar';
-import SanityPortableText from '@/shared/SanityPortableText';
+import ProductDetailImage from "@/app/products/ProductDetailImage";
+import { PageProps, TSlug } from "@/interface/page";
+import { TProduct } from "@/interface/product";
+import sanityFetch from "@/sanity/client";
+import Footer from "@/shared/Footer";
+import Navbar from "@/shared/Navbar";
+import SanityPortableText from "@/shared/SanityPortableText";
 
-import ProductSkeleton from '../ProductSkeleton';
-import GoBack from './GoBack';
-import {
-  FixedButton,
-  StaticButton,
-} from './WhatsappButton';
+import ProductSkeleton from "../ProductSkeleton";
+import GoBack from "./GoBack";
+import { FixedButton, StaticButton } from "./WhatsappButton";
 
 const PRODUCT_QUERY = `*[_type == "product" && slug.current == $slug][0]{_id,  title, date, body, "image":image[].asset->url, category->{value}}`;
 

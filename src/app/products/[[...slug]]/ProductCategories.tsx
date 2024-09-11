@@ -1,19 +1,15 @@
 /** @format */
 
-import { Suspense } from 'react';
+import { Suspense } from "react";
 
-import Link from 'next/link';
+import Link from "next/link";
 
-import { TString } from '@/interface/page';
-import {
-  TCategory,
-  TProduct,
-  TRoutes,
-} from '@/interface/product';
-import sanityFetch from '@/sanity/client';
+import { TString } from "@/interface/page";
+import { TCategory, TProduct, TRoutes } from "@/interface/product";
+import sanityFetch from "@/sanity/client";
 
-import ProductCard from '../ProductCard';
-import ProductSkeletons from '../ProductSkeletons';
+import ProductCard from "../ProductCard";
+import ProductSkeletons from "../ProductSkeletons";
 
 const CATEGORIES_QUERY = `*[_type == "category"]{_id, value, name, date}|order(date asc)`;
 
@@ -64,7 +60,7 @@ export default async function ProductCategories({ currentCategory }: TString) {
 
   let currentFormattedCategory: TRoutes =
     categories.find(
-      (category) => category.href.replace("/", "") === currentCategory,
+      (category) => category.href.replace("/", "") === currentCategory
     ) || categories[0];
 
   return (
@@ -74,8 +70,7 @@ export default async function ProductCategories({ currentCategory }: TString) {
           className="bg-n-100 mt-[48px] flex h-[76px] w-[1180px] items-center justify-between gap-16 rounded-xl px-[64px] py-[12px] sm:grid sm:h-auto sm:w-full sm:grid-cols-2 sm:gap-4 sm:px-[1rem]"
           style={{
             boxShadow: "0px 5px 12px 2px rgba(0, 0, 0, 0.08)",
-          }}
-        >
+          }}>
           {categories.map((category, i) => (
             <Link
               key={i}
@@ -85,8 +80,7 @@ export default async function ProductCategories({ currentCategory }: TString) {
                   ? "bg-b-500 text-n-100"
                   : "text-n-700"
               }`}
-              scroll={false}
-            >
+              scroll={false}>
               {category.name}
             </Link>
           ))}

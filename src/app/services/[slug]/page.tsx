@@ -1,21 +1,18 @@
 /** @format */
 
-import { Suspense } from 'react';
+import { Suspense } from "react";
 
-import { redirect } from 'next/navigation';
+import { redirect } from "next/navigation";
 
-import { TArticle } from '@/interface/article';
-import {
-  PageProps,
-  TSlug,
-} from '@/interface/page';
-import sanityFetch from '@/sanity/client';
-import Footer from '@/shared/Footer';
-import ImageLoader from '@/shared/ImageLoader';
-import Navbar from '@/shared/Navbar';
-import SanityPortableText from '@/shared/SanityPortableText';
+import { TArticle } from "@/interface/article";
+import { PageProps, TSlug } from "@/interface/page";
+import sanityFetch from "@/sanity/client";
+import Footer from "@/shared/Footer";
+import ImageLoader from "@/shared/ImageLoader";
+import Navbar from "@/shared/Navbar";
+import SanityPortableText from "@/shared/SanityPortableText";
 
-import ArticleDetailSkeleton from './ArticleDetailSkeleton';
+import ArticleDetailSkeleton from "./ArticleDetailSkeleton";
 
 const ARTICLE_QUERY = `*[_type == "article" && slug.current == $slug][0]{_id,  title, excerpt, publishedAt, body, "mainImage":mainImage.asset->url}`;
 
@@ -52,13 +49,13 @@ async function Article({ slug }: TSlug) {
         <p className="text-n-700">{formattedDate}</p>
       </div>
       <div className="inner-wrapper mt-[64px] !w-[1156px] sm:px-[1rem]">
-         <ImageLoader 
+        <ImageLoader
           imageURL={article.mainImage}
           className="w-full rounded-3xl"
           height={800}
           width={800}
           alt="main-image"
-         />
+        />
       </div>
       <div className="outer-wrapper mt-[40px]">
         <div className="inner-wrapper !w-[1156px] sm:px-[1rem]">

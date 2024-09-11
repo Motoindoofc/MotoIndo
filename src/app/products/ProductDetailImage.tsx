@@ -1,18 +1,14 @@
 /** @format */
 "use client";
 
-import {
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { useEffect, useRef, useState } from "react";
 
-import Image from 'next/image';
+import Image from "next/image";
 
-import ArrowBack from '@/assets/icons/arrow-back.svg';
-import ArrowForward from '@/assets/icons/arrow-forward.svg';
-import { ArrowButtonProps } from '@/interface/product';
-import ImageLoader from '@/shared/ImageLoader';
+import ArrowBack from "@/assets/icons/arrow-back.svg";
+import ArrowForward from "@/assets/icons/arrow-forward.svg";
+import { ArrowButtonProps } from "@/interface/product";
+import ImageLoader from "@/shared/ImageLoader";
 
 function ArrowButton({ isBack = false, scrollContainerRef }: ArrowButtonProps) {
   const [isOverflowing, setIsOverflowing] = useState(false);
@@ -52,7 +48,7 @@ function ArrowButton({ isBack = false, scrollContainerRef }: ArrowButtonProps) {
       if (scrollContainerRef.current) {
         setIsOverflowing(
           scrollContainerRef.current.scrollWidth >
-            scrollContainerRef.current.clientWidth,
+            scrollContainerRef.current.clientWidth
         );
       }
     };
@@ -105,8 +101,7 @@ export default function ProductDetailImage({
           <ArrowButton scrollContainerRef={scrollContainerRef} isBack />
           <div
             ref={scrollContainerRef}
-            className="scrollbar-hide container flex h-[200px] items-stretch justify-start gap-3 overflow-x-auto"
-          >
+            className="scrollbar-hide container flex h-[200px] items-stretch justify-start gap-3 overflow-x-auto">
             {formattedImages.map((image) => (
               <Image
                 key={image.id}

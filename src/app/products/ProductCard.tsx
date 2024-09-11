@@ -12,8 +12,7 @@ export default function ProductCard({ data }: ProductCardProps) {
       className="bg-n-100 h-[320px] w-[280px] cursor-pointer overflow-hidden rounded-2xl sm:w-auto"
       style={{
         boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.06)",
-      }}
-    >
+      }}>
       <ImageLoader
         className="h-[200px] w-full object-contain"
         width={400}

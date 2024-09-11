@@ -40,8 +40,7 @@ export default function Services() {
           {serviceLists.map((service, i) => (
             <div
               key={i}
-              className="mt-[92px] flex flex-col items-center gap-10"
-            >
+              className="mt-[92px] flex flex-col items-center gap-10">
               <p className="text-n-900 flex gap-5 text-[2rem] font-semibold">
                 <Image src={service.image} alt={service.title} />
                 {service.title}

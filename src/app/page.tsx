@@ -84,8 +84,7 @@ export default function Home() {
             {signatures.map((signature, i) => (
               <div
                 key={i}
-                className="bg-b-100 flex w-[360px] flex-col items-center rounded-[12px] p-[24px]"
-              >
+                className="bg-b-100 flex w-[360px] flex-col items-center rounded-[12px] p-[24px]">
                 <Image src={signature.image} alt={signature.title} />
                 <p className="text-b-600 mb-[8px] mt-[12px] font-bold sm:text-[1rem]">
                   {signature.title}
