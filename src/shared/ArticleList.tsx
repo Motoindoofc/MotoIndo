@@ -5,8 +5,8 @@ import { Suspense } from "react";
 import Link from "next/link";
 
 import ArticleSkeletons from "@/app/services/ArticleSkeletons";
+import { TArticle, TArticlePreview } from "@/interface/article";
 import sanityFetch from "@/sanity/client";
-import { SanityDocument } from "@sanity/client";
 
 import Button from "./Button";
 import ImageLoader from "./ImageLoader";
@@ -28,7 +28,7 @@ const ARTICLES_QUERY = `
   } | order(date desc)
 `;
 
-function CardArticle({ data }: any) {
+function CardArticle({ data }: { data: TArticlePreview }) {
   return (
     <Link
       href={`/services/${data.slug.current}`}
@@ -49,7 +49,7 @@ function CardArticle({ data }: any) {
 }
 
 async function List({ isFull }: IList) {
-  const articles = await sanityFetch<SanityDocument[]>({
+  const articles = await sanityFetch<TArticle[]>({
     query: ARTICLES_QUERY,
   });
 

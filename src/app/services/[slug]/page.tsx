@@ -26,7 +26,7 @@ const ARTICLE_QUERY = `
 `;
 
 async function Article({ slug }: TSlug) {
-  const article: TArticle = await sanityFetch<TArticle>({
+  const article = await sanityFetch<TArticle>({
     query: ARTICLE_QUERY,
     params: { slug },
   });
