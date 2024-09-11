@@ -1,19 +1,23 @@
 /** @format */
 
-import { Suspense } from "react";
+import { Suspense } from 'react';
 
-import Link from "next/link";
+import Link from 'next/link';
 
-import { TString } from "@/interface/page";
-import { TCategory, TProduct, TRoutes } from "@/interface/product";
-import sanityFetch from "@/sanity/client";
+import { TString } from '@/interface/page';
+import {
+  TCategory,
+  TProduct,
+  TRoutes,
+} from '@/interface/product';
+import sanityFetch from '@/sanity/client';
 
-import ProductCard from "../ProductCard";
-import ProductSkeletons from "../ProductSkeletons";
+import ProductCard from '../ProductCard';
+import ProductSkeletons from '../ProductSkeletons';
 
 const CATEGORIES_QUERY = `*[_type == "category"]{_id, value, name, date}|order(date asc)`;
 
-const PRODUCTS_QUERY = `*[_type == "product" && ($category == "" || category._ref == $category)]{_id, title, slug, category, preview, "image":image[].asset->url}|order(date desc)`;
+const PRODUCTS_QUERY = `*[_type == "product" && ($category == "" || category._ref == $category)]{_id, title, slug, category, preview, "image":image[].asset->url}|order(date asc)`;
 
 async function ProductList({ category }: { category: TRoutes }) {
   const products = await sanityFetch<TProduct[]>({

@@ -11,8 +11,6 @@ import { TString } from '@/interface/page';
 import routeToWhatsApp from './util';
 
 export default function FixedButton({ itemName }: TString) {
-  
-
   useEffect(() => {
     // Get the button and footer elements, cast them to HTMLElement
     const button = document.querySelector(
@@ -60,5 +58,16 @@ export default function FixedButton({ itemName }: TString) {
         <Image src={WAIcon} alt="wa-icon" /> Contact Via Whatsapp
       </button>
     </div>
+  );
+}
+
+export function StaticButton({ productTitle }: { productTitle: string }) {
+  return (
+    <button
+      onClick={() => routeToWhatsApp(productTitle)}
+      className="text-n-100 flex h-[72px] w-full items-center justify-center gap-3 rounded-lg bg-[#0EA46D] py-[18px] text-[1.25rem] font-semibold sm:hidden"
+    >
+      <Image src={WAIcon} alt="wa-icon" /> Order Via Whatsapp
+    </button>
   );
 }

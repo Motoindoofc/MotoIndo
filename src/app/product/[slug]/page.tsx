@@ -2,11 +2,9 @@
 
 import { Suspense } from 'react';
 
-import Image from 'next/image';
 import { redirect } from 'next/navigation';
 
 import ProductDetailImage from '@/app/products/ProductDetailImage';
-import WAIcon from '@/assets/icons/wa-icon-white.svg';
 import {
   PageProps,
   TSlug,
@@ -18,9 +16,8 @@ import Navbar from '@/shared/Navbar';
 import SanityPortableText from '@/shared/SanityPortableText';
 
 import ProductSkeleton from '../ProductSkeleton';
-import FixedButton from './FixedButton';
 import GoBack from './GoBack';
-import routeToWhatsApp from './util';
+import FixedButton, { StaticButton } from './WhatsappButton';
 
 const PRODUCT_QUERY = `*[_type == "product" && slug.current == $slug][0]{_id,  title, date, body, "image":image[].asset->url, category->{value}}`;
 
@@ -50,11 +47,9 @@ async function Product({ slug }: TSlug) {
           </h1>
           <h2 className="text-n-700 text-[1rem] font-semibold">Description</h2>
           <div className="h-[520px] overflow-y-auto sm:h-auto">
-            <SanityPortableText value={product.body} />,
+            <SanityPortableText value={product.body} />
           </div>
-          <button onClick={() => routeToWhatsApp(product.title)} className="text-n-100 flex h-[72px] w-full items-center justify-center gap-3 rounded-lg bg-[#0EA46D] py-[18px] text-[1.25rem] font-semibold sm:hidden">
-            <Image src={WAIcon} alt="wa-icon" /> Order Via Whatsapp
-          </button>
+          <StaticButton productTitle={product.title} />
           <FixedButton itemName={product.title} />
         </div>
       </div>
