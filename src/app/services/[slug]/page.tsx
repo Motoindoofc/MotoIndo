@@ -14,7 +14,16 @@ import SanityPortableText from "@/shared/SanityPortableText";
 
 import ArticleDetailSkeleton from "./ArticleDetailSkeleton";
 
-const ARTICLE_QUERY = `*[_type == "article" && slug.current == $slug][0]{_id,  title, excerpt, publishedAt, body, "mainImage":mainImage.asset->url}`;
+const ARTICLE_QUERY = `
+  *[_type == "article" && slug.current == $slug][0]{
+    _id,
+    title,
+    excerpt,
+    publishedAt,
+    body,
+    "mainImage": mainImage.asset->url
+  }
+`;
 
 async function Article({ slug }: TSlug) {
   const article: TArticle = await sanityFetch<TArticle>({

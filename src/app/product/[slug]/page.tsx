@@ -16,7 +16,16 @@ import ProductSkeleton from "../ProductSkeleton";
 import GoBack from "./GoBack";
 import { FixedButton, StaticButton } from "./WhatsappButton";
 
-const PRODUCT_QUERY = `*[_type == "product" && slug.current == $slug][0]{_id,  title, date, body, "image":image[].asset->url, category->{value}}`;
+const PRODUCT_QUERY = `
+  *[_type == "product" && slug.current == $slug][0]{
+    _id,
+    title,
+    date,
+    body,
+    "image": image[].asset->url,
+    category->{ value }
+  }
+`;
 
 async function Product({ slug }: TSlug) {
   const product = await sanityFetch<TProduct>({
@@ -46,7 +55,7 @@ async function Product({ slug }: TSlug) {
           <div className="h-[520px] overflow-y-auto sm:h-auto">
             <SanityPortableText value={product.body} />
           </div>
-          <StaticButton productTitle={product.title} />
+          <StaticButton itemName={product.title} />
           <FixedButton itemName={product.title} />
         </div>
       </div>

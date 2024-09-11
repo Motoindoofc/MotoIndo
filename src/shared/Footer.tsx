@@ -1,17 +1,17 @@
 /** @format */
 
-import Image from 'next/image';
+import Image from "next/image";
 
-import EmailIcon from '@/assets/icons/email-icon.svg';
-import WAIcon from '@/assets/icons/wa-icon.svg';
-import CTAImage from '@/assets/images/footer-img.png';
-import MotoIndo from '@/assets/logo/motoindo-footer-logo.svg';
+import EmailIcon from "@/assets/icons/email-icon.svg";
+import WAIcon from "@/assets/icons/wa-icon.svg";
+import CTAImage from "@/assets/images/footer-img.png";
+import MotoIndo from "@/assets/logo/motoindo-footer-logo.svg";
 
-import Achievement from './Achievement';
+import Achievement from "./Achievement";
 
 function ContactSection() {
-  const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER;
-  const email = process.env.NEXT_PUBLIC_EMAIL;
+  const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER || "0851 3488 8834";
+  const email = process.env.NEXT_PUBLIC_EMAIL || "motoindoofficial@gmail.com";
 
   return (
     <>
@@ -21,9 +21,7 @@ function ContactSection() {
       <div className="flex flex-col gap-6">
         <div className="bg-n-100 flex h-[64px] w-[500px] max-w-full items-center justify-center gap-4 rounded-2xl py-[16px] sm:w-auto sm:gap-2 sm:px-[24px]">
           <Image src={EmailIcon} alt="email-icon" />
-          <p className="text-b-700 text-[1.5rem] font-semibold">
-            {email}
-          </p>
+          <p className="text-b-700 text-[1.5rem] font-semibold">{email}</p>
         </div>
         <div className="bg-n-100 flex h-[64px] w-[500px] max-w-full items-center justify-center gap-4 rounded-2xl py-[16px] sm:w-auto sm:gap-2 sm:px-[24px]">
           <Image src={WAIcon} alt="wa-icon" />
@@ -44,8 +42,7 @@ function CTA() {
         top: "50%",
         left: "50%",
         transform: "translateX(-50%)",
-      }}
-    >
+      }}>
       <ContactSection />
       <Image
         src={CTAImage}

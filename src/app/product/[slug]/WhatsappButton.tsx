@@ -60,10 +60,10 @@ export function FixedButton({ itemName }: TString) {
   );
 }
 
-export function StaticButton({ productTitle }: { productTitle: string }) {
+export function StaticButton({ itemName }: TString) {
   return (
     <button
-      onClick={() => routeToWhatsApp(productTitle)}
+      onClick={() => routeToWhatsApp(itemName)}
       className="text-n-100 flex h-[72px] w-full items-center justify-center gap-3 rounded-lg bg-[#0EA46D] py-[18px] text-[1.25rem] font-semibold sm:hidden">
       <Image src={WAIcon} alt="wa-icon" /> Order Via Whatsapp
     </button>

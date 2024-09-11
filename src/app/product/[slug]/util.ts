@@ -1,10 +1,12 @@
 /** @format */
 
 const routeToWhatsApp = (itemName: string) => {
-  const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER;
+  let phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER || "0851 3488 8834";
   const message = process.env.NEXT_PUBLIC_MESSAGE_TEMPLATE;
 
   if (!phoneNumber) return;
+
+  phoneNumber = phoneNumber.replace(" ", "");
 
   const text = `?text=${message?.replace("[item]", itemName)}`;
   const whatsappLink = `https://wa.me/[number]${message ? text : ""}`.replace(

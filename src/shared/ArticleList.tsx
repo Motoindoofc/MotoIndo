@@ -1,15 +1,15 @@
 /** @format */
 
-import { Suspense } from 'react';
+import { Suspense } from "react";
 
-import Link from 'next/link';
+import Link from "next/link";
 
-import ArticleSkeletons from '@/app/services/ArticleSkeletons';
-import sanityFetch from '@/sanity/client';
-import { SanityDocument } from '@sanity/client';
+import ArticleSkeletons from "@/app/services/ArticleSkeletons";
+import sanityFetch from "@/sanity/client";
+import { SanityDocument } from "@sanity/client";
 
-import Button from './Button';
-import ImageLoader from './ImageLoader';
+import Button from "./Button";
+import ImageLoader from "./ImageLoader";
 
 interface IList {
   isFull: boolean;
@@ -18,15 +18,22 @@ interface IList {
 interface IArticleList {
   isFull?: boolean;
 }
-const ARTICLES_QUERY = `*[_type == "article"]{_id, title, slug, "mainImage":mainImage.asset->url}|order(date desc)`;
+
+const ARTICLES_QUERY = `
+  *[_type == "article"]{
+    _id,
+    title,
+    slug,
+    "mainImage": mainImage.asset->url
+  } | order(date desc)
+`;
 
 function CardArticle({ data }: any) {
   return (
     <Link
       href={`/services/${data.slug.current}`}
       className="h-[460px] w-[360px] max-w-full cursor-pointer overflow-hidden rounded-2xl"
-      style={{ boxShadow: "0px 4px 25.1px 0px rgba(0, 0, 0, 0.09)" }}
-    >
+      style={{ boxShadow: "0px 4px 25.1px 0px rgba(0, 0, 0, 0.09)" }}>
       <ImageLoader
         imageURL={data.mainImage}
         alt={data.title}
