@@ -21,9 +21,41 @@ const ARTICLE_QUERY = `
     excerpt,
     publishedAt,
     body,
+    seoTitle,
+    seoDescription,
     "mainImage": mainImage.asset->url
   }
 `;
+
+export async function generateMetadata({ params }: PageProps) {
+  const article = await sanityFetch<TArticle>({
+    query: ARTICLE_QUERY,
+    params: { slug: params.slug },
+  });
+
+  if (!article) {
+    return {
+      title: "Article Not Found | MotoIndo",
+      description: "The requested article could not be found.",
+    };
+  }
+
+  return {
+    title: `${article.title} | MotoIndo`,
+    description: article.seoDescription,
+    openGraph: {
+      title: article.title,
+      description: article.excerpt,
+      images: [
+        {
+          url: article.mainImage,
+          alt: article.title,
+        },
+      ],
+      type: "article",
+    },
+  };
+}
 
 async function Article({ slug }: TSlug) {
   const article = await sanityFetch<TArticle>({
@@ -32,7 +64,7 @@ async function Article({ slug }: TSlug) {
   });
 
   if (!article) {
-    return redirect("/services");
+    return redirect("/not-found");
   }
 
   const date = new Date(article.publishedAt);
@@ -48,7 +80,7 @@ async function Article({ slug }: TSlug) {
 
   return (
     <div className="outer-wrapper">
-      <div className="inner-wrapper flex !w-[1156px] flex-col gap-9 py-[64px] sm:px-[1rem]">
+      <div className="inner-wrapper flex !w-[1156px] flex-col gap-9 mt-[64px] py-[64px] sm:px-[1rem]">
         <h1 className="text-center text-[4rem] font-semibold sm:text-[2rem]">
           {article.title}
         </h1>

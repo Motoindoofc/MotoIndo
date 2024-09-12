@@ -10,6 +10,8 @@ export interface TArticle {
   publishedAt: string;
   body: any;
   mainImage: string;
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
 export type TArticlePreview = Pick<TArticle, "mainImage" | "title" | "slug">;

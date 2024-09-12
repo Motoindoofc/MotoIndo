@@ -2,7 +2,7 @@
 
 import "./globals.css";
 
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import { Sora as SoraFont } from "next/font/google";
 
 import NProgress from "./NProgress";
@@ -15,7 +15,7 @@ const Sora = SoraFont({
 });
 
 export const metadata: Metadata = {
-  title: "MotoIndo",
+  title: "MotoIndo | Membangun Ekosistem Keamanan Terintegrasi",
   description: "MotoIndo, Membangun Ekosistem Keamanan Terintegrasi",
 };
 

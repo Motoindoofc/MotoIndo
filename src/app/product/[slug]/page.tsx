@@ -27,6 +27,34 @@ const PRODUCT_QUERY = `
   }
 `;
 
+export async function generateMetadata({ params }: PageProps) {
+  const product = await sanityFetch<TProduct>({
+    query: PRODUCT_QUERY,
+    params: { slug: params.slug },
+  });
+
+  if (!product) {
+    return {
+      title: "Product Not Found | MotoIndo",
+      description: "The requested product could not be found.",
+    };
+  }
+
+  return {
+    title: `${product.title} | MotoIndo`,
+    description: product.preview,
+    openGraph: {
+      title: product.title,
+      description: product.preview,
+      images: product.image.map((url) => ({
+        url,
+        alt: product.title,
+      })),
+      type: "article",
+    },
+  };
+}
+
 async function Product({ slug }: TSlug) {
   const product = await sanityFetch<TProduct>({
     query: PRODUCT_QUERY,

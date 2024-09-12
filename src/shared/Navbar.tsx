@@ -101,7 +101,7 @@ function NavbarComponent({
     <nav
       className={`${
         isFixed ? "fixed left-0 top-0" : "relative"
-      } bg-n-100 outer-wrapper z-20 h-[5rem] transform transition-all duration-200 sm:px-[24px] ${
+      } bg-n-100 outer-wrapper z-20 h-[5rem] transform transition-all duration-200 ${
         isOpen ? "!bg-transparent" : "border-b border-solid border-neutral-100"
       } ${isFixed && isScrolled ? "opacity-1 translate-y-0" : ""} ${
         isFixed && !isScrolled ? "-translate-y-full opacity-0" : ""

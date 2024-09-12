@@ -6,6 +6,18 @@ import Navbar from "@/shared/Navbar";
 
 import ProductCategories from "./ProductCategories";
 
+export async function generateMetadata() {
+  return {
+    title: "MotoIndo | Dapatkan penawaran menarik di MotoIndo",
+    description: "Dapatkan penawaran menarik di MotoIndo, ",
+    openGraph: {
+      title: "MotoIndo | Dapatkan penawaran menarik di MotoIndo, ",
+      description: "Dapatkan penawaran menarik di MotoIndo, ",
+      type: "article",
+    },
+  };
+}
+
 export default function Products({ params }: PageProps) {
   const currentCategory = params?.slug?.[0] || "";
 

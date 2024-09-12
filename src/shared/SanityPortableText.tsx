@@ -41,8 +41,7 @@ const components: PortableTextReactComponents = {
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
+            allowFullScreen></iframe>
         );
       }
     },
@@ -58,8 +57,7 @@ const components: PortableTextReactComponents = {
           marginTop: "10px",
           paddingLeft: "30px",
           listStyleType: "disc",
-        }}
-      >
+        }}>
         {children}
       </ul>
     ),
@@ -69,8 +67,7 @@ const components: PortableTextReactComponents = {
           marginTop: "10px",
           paddingLeft: "30px",
           listStyleType: "decimal",
-        }}
-      >
+        }}>
         {children}
       </ol>
     ),
@@ -84,16 +81,29 @@ const components: PortableTextReactComponents = {
     ),
   },
   block: {
-    h1: ({ children }) => <h1>{children}</h1>,
-    h2: ({ children }) => <h2>{children}</h2>,
-    h3: ({ children }) => <h3>{children}</h3>,
-    normal: ({ children }) => <p>{children}</p>,
+    h1: ({ children }) => (
+      <h1 className="text-[2rem] sm:text-[1.75rem]">{children}</h1>
+    ),
+    h2: ({ children }) => (
+      <h2 className="text-[1.75rem] sm:text-[1.5rem]">{children}</h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className="text-[1.5rem] sm:text-[1.25rem]">{children}</h3>
+    ),
+    h4: ({ children }) => (
+      <h4 className="text-[1.3rem] sm:text-[1.25rem]">{children}</h4>
+    ),
+    normal: ({ children }) => (
+      <p className="text-[1.25rem] sm:text-[1rem]">{children}</p>
+    ),
   },
   hardBreak: () => <br />,
   unknownMark: ({ children }) => <span>{children}</span>,
   unknownType: ({ children }) => <div>{children}</div>,
 
-  unknownBlockStyle: ({ children }) => <p>{children}</p>,
+  unknownBlockStyle: ({ children }) => (
+    <p className="text-[1.25rem] sm:text-[1rem]">{children}</p>
+  ),
   unknownList: ({ children }) => <ul>{children}</ul>,
   unknownListItem: ({ children }) => <li>{children}</li>,
 };

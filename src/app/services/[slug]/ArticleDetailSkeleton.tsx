@@ -5,7 +5,7 @@ import Skeleton from "react-loading-skeleton";
 export default function ArticleDetailSkeleton() {
   return (
     <div className="outer-wrapper">
-      <div className="inner-wrapper flex flex-col gap-9 py-[64px]">
+      <div className="inner-wrapper flex flex-col gap-9 mt-[64px] py-[64px]">
         <Skeleton height="4rem" width={1400} />
         <Skeleton height="4rem" width={1400} />
         <Skeleton height="1.5rem" width={800} />
