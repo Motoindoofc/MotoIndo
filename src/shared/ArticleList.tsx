@@ -39,7 +39,7 @@ function CardArticle({ data }: { data: TArticlePreview }) {
         alt={data.title}
         width={400}
         height={400}
-        className="h-[160px] w-full object-cover"
+        className="h-[260px] sm:h-[160px] w-full object-cover"
       />
       <p className="text-n-800 pt-[24px] px-[24px] h-auto text-[1.5rem] font-semibold sm:text-[1rem] sm:px-[12px] sm:pt-[12px] line-clamp-4 sm:line-clamp-5">
         {data.title}
