@@ -32,16 +32,16 @@ function CardArticle({ data }: { data: TArticlePreview }) {
   return (
     <Link
       href={`/services/${data.slug.current}`}
-      className="h-[460px] w-[360px] max-w-full cursor-pointer overflow-hidden rounded-2xl"
+      className="h-[460px] w-[360px] max-w-full cursor-pointer overflow-hidden rounded-2xl sm:h-[320px]"
       style={{ boxShadow: "0px 4px 25.1px 0px rgba(0, 0, 0, 0.09)" }}>
       <ImageLoader
         imageURL={data.mainImage}
         alt={data.title}
         width={400}
         height={400}
-        className="h-[260px] w-full object-cover"
+        className="h-[160px] w-full object-cover"
       />
-      <p className="text-n-800 p-[24px] text-[1.5rem] font-semibold sm:text-[1.25rem]">
+      <p className="text-n-800 pt-[24px] px-[24px] h-auto text-[1.5rem] font-semibold sm:text-[1rem] sm:px-[12px] sm:pt-[12px] line-clamp-4 sm:line-clamp-5">
         {data.title}
       </p>
     </Link>
