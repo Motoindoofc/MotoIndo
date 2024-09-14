@@ -4,6 +4,8 @@ import { client } from "@/sanity/client";
 import { PortableText, PortableTextReactComponents } from "@portabletext/react";
 import urlBuilder from "@sanity/image-url";
 
+import ImageLoader from "./ImageLoader";
+
 interface ISanityPortableText {
   value: any;
 }
@@ -18,11 +20,12 @@ const components: PortableTextReactComponents = {
         const imageURL = urlBuilder(client).image(asset?._ref)?.url() || "";
 
         return (
-          <img
-            className="mt-[20px]"
-            src={imageURL}
+          <ImageLoader
+            className="mt-[20px] max-w-full h-auto"
+            imageURL={imageURL}
+            height={1000}
+            width={1000}
             alt={alt || "Motoindo Image"}
-            style={{ maxWidth: "100%", height: "auto" }}
           />
         );
       }

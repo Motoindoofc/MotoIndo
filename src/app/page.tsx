@@ -1,6 +1,7 @@
 /** @format */
 
 import Image from "next/image";
+import Link from "next/link";
 
 import ArrowRight from "@/assets/icons/arrow-right-icon.svg";
 import IntegratedIcon from "@/assets/icons/integrated-icon.svg";
@@ -108,9 +109,11 @@ export default function Home() {
               <br />
               tercipta lingkungan yang lebih aman.
             </h2>
-            <p className="mt-[60px] flex cursor-pointer items-center gap-[10px] text-[1.5rem] text-[#4B65DB] sm:mt-0 sm:text-[0.875rem]">
+            <Link
+              href="/services/Terintegrasi-Desentralisasi"
+              className="mt-[60px] flex cursor-pointer items-center gap-[10px] text-[1.5rem] text-[#4B65DB] sm:mt-0 sm:text-[0.875rem]">
               Pelajari Lebih Lanjut <Image src={ArrowRight} alt="arrow-right" />
-            </p>
+            </Link>
           </div>
           <div className="bg-b-600 flex w-full items-center justify-center xl:w-[538px]">
             <IntegratedBackgroundVideo />

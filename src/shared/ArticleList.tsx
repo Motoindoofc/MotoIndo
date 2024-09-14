@@ -58,7 +58,7 @@ async function List({ isFull }: IList) {
       {articles.length === 0 ? (
         <div>No article yet</div>
       ) : (
-        <div className="flex gap-16 sm:flex-col">
+        <div className="flex gap-16 sm:grid sm:grid-cols-2 sm:gap-4">
           {articles.map((article) => (
             <CardArticle key={article._id} data={article} />
           ))}
