@@ -17,7 +17,7 @@ const CATEGORIES_QUERY = `
     value,
     name,
     date
-  } | order(date asc)
+  } | order(dateTime(date) asc)
 `;
 
 const PRODUCTS_QUERY = `
@@ -28,7 +28,7 @@ const PRODUCTS_QUERY = `
     category, 
     preview, 
     "image": image[].asset->url,
-    date // Ensure 'date' is a full timestamp
+    date
   } | order(dateTime(date) desc)
 `;
 

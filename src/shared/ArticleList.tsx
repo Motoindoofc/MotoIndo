@@ -24,8 +24,9 @@ const ARTICLES_QUERY = `
     _id,
     title,
     slug,
+    publishedAt,
     "mainImage": mainImage.asset->url
-  } | order(date desc)
+  } | order(dateTime(publishedAt) desc)
 `;
 
 function CardArticle({ data }: { data: TArticlePreview }) {
