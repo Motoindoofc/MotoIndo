@@ -1,6 +1,7 @@
 /** @format */
 
 import Image from "next/image";
+import Link from "next/link";
 
 import EmailIcon from "@/assets/icons/email-icon.svg";
 import WAIcon from "@/assets/icons/wa-icon.svg";
@@ -19,16 +20,22 @@ function ContactSection() {
         Tingkatkan keamanan dengan kami
       </p>
       <div className="flex flex-col gap-6">
-        <div className="bg-n-100 flex h-[64px] w-[500px] max-w-full items-center justify-center gap-4 rounded-2xl py-[16px] sm:w-auto sm:gap-2 sm:px-[24px]">
+        <Link
+          href="#"
+          target="_blank"
+          className="bg-n-100 flex h-[64px] w-[500px] max-w-full items-center justify-center gap-4 rounded-2xl py-[16px] sm:w-auto sm:gap-2 sm:px-[24px]">
           <Image src={EmailIcon} alt="email-icon" />
           <p className="text-b-700 text-[1.5rem] font-semibold">{email}</p>
-        </div>
-        <div className="bg-n-100 flex h-[64px] w-[500px] max-w-full items-center justify-center gap-4 rounded-2xl py-[16px] sm:w-auto sm:gap-2 sm:px-[24px]">
+        </Link>
+        <Link
+          href="#"
+          target="_blank"
+          className="bg-n-100 flex h-[64px] w-[500px] max-w-full items-center justify-center gap-4 rounded-2xl py-[16px] sm:w-auto sm:gap-2 sm:px-[24px]">
           <Image src={WAIcon} alt="wa-icon" />
           <p className="text-b-700 text-[1.5rem] font-semibold">
             {phoneNumber}
           </p>
-        </div>
+        </Link>
       </div>
     </>
   );
