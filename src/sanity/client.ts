@@ -24,7 +24,7 @@ export default function sanityFetch<QueryResponse>({
 }) {
   return client.fetch<QueryResponse>(query, params, {
     next: {
-      revalidate: 60 * 5,
+      revalidate: 60,
       tags,
     },
   });
