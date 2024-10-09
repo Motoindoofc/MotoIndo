@@ -11,8 +11,8 @@ import MotoIndo from "@/assets/logo/motoindo-footer-logo.svg";
 import Achievement from "./Achievement";
 
 function ContactSection() {
-  const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER || "0851 3488 8834";
-  const email = process.env.NEXT_PUBLIC_EMAIL || "motoindoofficial@gmail.com";
+  const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER || "+6285134888834";
+  const email = process.env.NEXT_PUBLIC_EMAIL || "halo@motoindo.id";
 
   return (
     <>
@@ -21,14 +21,14 @@ function ContactSection() {
       </p>
       <div className="flex flex-col gap-6">
         <Link
-          href="#"
+          href="mailto:halo@motoindo.id"
           target="_blank"
           className="bg-n-100 flex h-[64px] w-[500px] max-w-full items-center justify-center gap-4 rounded-2xl py-[16px] sm:w-auto sm:gap-2 sm:px-[24px]">
           <Image src={EmailIcon} alt="email-icon" />
           <p className="text-b-700 text-[1.5rem] font-semibold">{email}</p>
         </Link>
         <Link
-          href="#"
+          href="https://wa.me/6285134888834?text=Halo+Motoindo"
           target="_blank"
           className="bg-n-100 flex h-[64px] w-[500px] max-w-full items-center justify-center gap-4 rounded-2xl py-[16px] sm:w-auto sm:gap-2 sm:px-[24px]">
           <Image src={WAIcon} alt="wa-icon" />
