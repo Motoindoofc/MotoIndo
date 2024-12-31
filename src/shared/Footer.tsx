@@ -19,20 +19,22 @@ function ContactSection() {
       <p className="text-n-100 w-[60%] text-[3rem] font-semibold sm:w-full sm:text-center sm:text-[1.75rem]">
         Tingkatkan keamanan dengan kami
       </p>
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 ">
         <Link
           href="mailto:halo@motoindo.id"
           target="_blank"
           className="bg-n-100 flex h-[64px] w-[500px] max-w-full items-center justify-center gap-4 rounded-2xl py-[16px] sm:w-auto sm:gap-2 sm:px-[24px]">
           <Image src={EmailIcon} alt="email-icon" />
-          <p className="text-b-700 text-[1.5rem] font-semibold">{email}</p>
+          <p className="text-b-700 text-2xl font-semibold sm:text-lg">
+            {email}
+          </p>
         </Link>
         <Link
           href="https://wa.me/6285134888834?text=Halo+Motoindo"
           target="_blank"
           className="bg-n-100 flex h-[64px] w-[500px] max-w-full items-center justify-center gap-4 rounded-2xl py-[16px] sm:w-auto sm:gap-2 sm:px-[24px]">
           <Image src={WAIcon} alt="wa-icon" />
-          <p className="text-b-700 text-[1.5rem] font-semibold">
+          <p className="text-b-700  text-2xl font-semibold sm:text-lg">
             {phoneNumber}
           </p>
         </Link>
@@ -44,7 +46,7 @@ function ContactSection() {
 function CTA() {
   return (
     <div
-      className="bg-b-gradient absolute flex h-[422px] w-[1156px] flex-col justify-between gap-6 rounded-[37px] px-[80px] pb-[50px] pt-[60px]"
+      className="bg-b-gradient absolute flex h-[422px] w-[1156px] flex-col justify-between gap-6 rounded-[37px] px-[80px] pb-[50px] pt-[60px] sm:max-w-full sm:rounded-none sm:px-4 sm:gap-4"
       style={{
         top: "50%",
         left: "50%",
@@ -54,7 +56,7 @@ function CTA() {
       <Image
         src={CTAImage}
         alt="cta-image"
-        className="absolute"
+        className="absolute sm:hidden"
         style={{
           top: "-38%",
           right: "2.5%",
@@ -67,7 +69,8 @@ function CTA() {
 export default function Footer() {
   return (
     <div className="bg-n-200 pt-[120px] sm:pt-[120px]" id="footer">
-      <div className="relative h-[380px] sm:hidden">
+      <div className="relative h-[380px] ">
+        {/* sm:hidden */}
         <CTA />
       </div>
       {/* <div className="hidden sm:flex bg-b-gradient flex-col items-center gap-9 pt-[24px] pb-[70px] px-0 sm:px-[1rem]">
