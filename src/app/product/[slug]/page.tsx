@@ -2,6 +2,7 @@
 
 import { Suspense } from 'react';
 
+import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
 import ProductDetailImage from '@/app/products/ProductDetailImage';
@@ -33,7 +34,9 @@ const PRODUCT_QUERY = `
   }
 `;
 
-export async function generateStaticParams({ params }: PageProps) {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const product = await sanityFetch<TProduct>({
     query: PRODUCT_QUERY,
     params: { slug: params.slug },
