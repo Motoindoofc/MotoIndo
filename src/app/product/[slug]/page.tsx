@@ -1,20 +1,26 @@
 /** @format */
 
-import { Suspense } from "react";
+import { Suspense } from 'react';
 
-import { redirect } from "next/navigation";
+import { redirect } from 'next/navigation';
 
-import ProductDetailImage from "@/app/products/ProductDetailImage";
-import { PageProps, TSlug } from "@/interface/page";
-import { TProduct } from "@/interface/product";
-import sanityFetch from "@/sanity/client";
-import Footer from "@/shared/Footer";
-import Navbar from "@/shared/Navbar";
-import SanityPortableText from "@/shared/SanityPortableText";
+import ProductDetailImage from '@/app/products/ProductDetailImage';
+import {
+  PageProps,
+  TSlug,
+} from '@/interface/page';
+import { TProduct } from '@/interface/product';
+import sanityFetch from '@/sanity/client';
+import Footer from '@/shared/Footer';
+import Navbar from '@/shared/Navbar';
+import SanityPortableText from '@/shared/SanityPortableText';
 
-import ProductSkeleton from "../ProductSkeleton";
-import GoBack from "./GoBack";
-import { FixedButton, StaticButton } from "./WhatsappButton";
+import ProductSkeleton from '../ProductSkeleton';
+import GoBack from './GoBack';
+import {
+  FixedButton,
+  StaticButton,
+} from './WhatsappButton';
 
 const PRODUCT_QUERY = `
   *[_type == "product" && slug.current == $slug][0]{
@@ -27,7 +33,7 @@ const PRODUCT_QUERY = `
   }
 `;
 
-export async function generateMetadata({ params }: PageProps) {
+export async function generateStaticParams({ params }: PageProps) {
   const product = await sanityFetch<TProduct>({
     query: PRODUCT_QUERY,
     params: { slug: params.slug },
