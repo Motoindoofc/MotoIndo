@@ -1,11 +1,13 @@
 /** @format */
 
-import "./globals.css";
+import './globals.css';
 
-import { Metadata } from "next";
-import { Sora as SoraFont } from "next/font/google";
+import { Metadata } from 'next';
+import { Sora as SoraFont } from 'next/font/google';
 
-import NProgress from "./NProgress";
+import { GoogleAnalytics } from '@next/third-parties/google';
+
+import NProgress from './NProgress';
 
 const Sora = SoraFont({
   subsets: ["latin"],
@@ -29,6 +31,7 @@ export default function RootLayout({
       <body className={Sora.className}>
         {children}
         <NProgress />
+        <GoogleAnalytics gaId="G-D9F04NQCVD" />
       </body>
     </html>
   );
