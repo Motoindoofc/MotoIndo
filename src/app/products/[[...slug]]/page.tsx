@@ -1,10 +1,10 @@
 /** @format */
 
-import { PageProps } from "@/interface/page";
-import Footer from "@/shared/Footer";
-import Navbar from "@/shared/Navbar";
+import { PageProps } from '@/interface/page';
+import Footer from '@/shared/Footer';
+import Navbar from '@/shared/Navbar';
 
-import ProductCategories from "./ProductCategories";
+import ProductCategories from './ProductCategories';
 
 export async function generateMetadata() {
   return {
@@ -16,6 +16,13 @@ export async function generateMetadata() {
       type: "article",
     },
   };
+}
+
+export async function generateStaticParams() {
+  const categories = ["handy-talky", "rigbase", "repeater", "aksesoris"];
+  return categories.map((category) => ({
+    slug: [category],
+  }));
 }
 
 export default function Products({ params }: PageProps) {

@@ -1,18 +1,22 @@
 /** @format */
 
-import { Suspense } from "react";
+import { Suspense } from 'react';
 
-import { redirect } from "next/navigation";
+import { redirect } from 'next/navigation';
+import Skeleton from 'react-loading-skeleton';
 
-import { TArticle } from "@/interface/article";
-import { PageProps, TSlug } from "@/interface/page";
-import sanityFetch from "@/sanity/client";
-import Footer from "@/shared/Footer";
-import ImageLoader from "@/shared/ImageLoader";
-import Navbar from "@/shared/Navbar";
-import SanityPortableText from "@/shared/SanityPortableText";
+import { TArticle } from '@/interface/article';
+import {
+  PageProps,
+  TSlug,
+} from '@/interface/page';
+import sanityFetch from '@/sanity/client';
+import Footer from '@/shared/Footer';
+import ImageLoader from '@/shared/ImageLoader';
+import Navbar from '@/shared/Navbar';
+import SanityPortableText from '@/shared/SanityPortableText';
 
-import ArticleDetailSkeleton from "./ArticleDetailSkeleton";
+// import ArticleDetailSkeleton from './ArticleDetailSkeleton';
 
 const ARTICLE_QUERY = `
   *[_type == "article" && slug.current == $slug][0]{
@@ -27,34 +31,74 @@ const ARTICLE_QUERY = `
   }
 `;
 
-export async function generateMetadata({ params }: PageProps) {
-  const article = await sanityFetch<TArticle>({
-    query: ARTICLE_QUERY,
-    params: { slug: params.slug },
+const SERVICE_SLUG_QUERY = `
+  *[_type == "service"]{
+    "slug": slug.current
+  }
+`;
+
+export async function generateStaticParams() {
+  const articles = await sanityFetch<{ slug: string }[]>({
+    query: SERVICE_SLUG_QUERY,
   });
 
-  if (!article) {
-    return {
-      title: "Article Not Found | MotoIndo",
-      description: "The requested article could not be found.",
-    };
-  }
+  return articles.map(({ slug }) => ({
+    slug: [slug],
+  }));
+}
 
-  return {
-    title: `${article.title} | MotoIndo`,
-    description: article.seoDescription,
-    openGraph: {
-      title: article.title,
-      description: article.excerpt,
-      images: [
-        {
-          url: article.mainImage,
-          alt: article.title,
-        },
-      ],
-      type: "article",
-    },
-  };
+// export async function generateMetadata({ params }: PageProps) {
+//   const article = await sanityFetch<TArticle>({
+//     query: ARTICLE_QUERY,
+//     params: { slug: params.slug },
+//   });
+
+//   if (!article) {
+//     return {
+//       title: "Article Not Found | MotoIndo",
+//       description: "The requested article could not be found.",
+//     };
+//   }
+
+//   return {
+//     title: `${article.title} | MotoIndo`,
+//     description: article.seoDescription,
+//     openGraph: {
+//       title: article.title,
+//       description: article.excerpt,
+//       images: [
+//         {
+//           url: article.mainImage,
+//           alt: article.title,
+//         },
+//       ],
+//       type: "article",
+//     },
+//   };
+// }
+
+function ArticleDetailSkeleton() {
+  return (
+    <div className="outer-wrapper">
+      <div className="inner-wrapper flex flex-col gap-9 mt-[64px] py-[64px]">
+        <Skeleton height="4rem" width={1400} />
+        <Skeleton height="4rem" width={1400} />
+        <Skeleton height="1.5rem" width={800} />
+        <Skeleton height="1rem" width={300} />
+      </div>
+      <div className="inner-wrapper mt-[64px]">
+        <Skeleton
+          className="max-w-full"
+          width={1440}
+          borderRadius={20}
+          height={800}
+        />
+        <Skeleton className="mt-[64px] max-w-full" width={1440} height={400} />
+        <Skeleton className="mt-[64px] max-w-full" width={1440} height={400} />
+        <Skeleton className="mt-[64px] max-w-full" width={1440} height={400} />
+      </div>
+    </div>
+  );
 }
 
 async function Article({ slug }: TSlug) {

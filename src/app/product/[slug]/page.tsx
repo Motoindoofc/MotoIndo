@@ -33,32 +33,14 @@ const PRODUCT_QUERY = `
   }
 `;
 
-export async function generateStaticParams({ params }: PageProps) {
-  const product = await sanityFetch<TProduct>({
-    query: PRODUCT_QUERY,
-    params: { slug: params.slug },
+export async function generateStaticParams() {
+  const products = await sanityFetch<TProduct[]>({
+    query: `*[_type == "product"]{ slug }`,
   });
 
-  if (!product) {
-    return {
-      title: "Product Not Found | MotoIndo",
-      description: "The requested product could not be found.",
-    };
-  }
-
-  return {
-    title: `${product.title} | MotoIndo`,
-    description: product.preview,
-    openGraph: {
-      title: product.title,
-      description: product.preview,
-      images: product.image.map((url) => ({
-        url,
-        alt: product.title,
-      })),
-      type: "article",
-    },
-  };
+  return products.map((product) => ({
+    slug: product.slug.current,
+  }));
 }
 
 async function Product({ slug }: TSlug) {
