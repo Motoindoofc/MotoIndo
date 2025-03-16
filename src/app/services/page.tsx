@@ -15,10 +15,10 @@ import ServiceArticleScrollHandler from "./ServerArticleScrollHandler";
 
 export async function generateMetadata() {
   return {
-    title: "MotoIndo | Layanan fleksible menyesuaikan kebutuhan Anda",
+    title: "MotoIndo | Motorola Indonesia",
     description: "Layanan fleksible menyesuaikan kebutuhan Anda",
     openGraph: {
-      title: "MotoIndo | Layanan fleksible menyesuaikan kebutuhan Anda",
+      title: "MotoIndo | Motorola Indonesia",
       description:
         "Layanan fleksible menyesuaikan kebutuhan Anda, Sejak 2008 Motoindo dipercaya dalam komunikasi radio dan keamanan. Kami dapat melayani sesuai kebutuhan anda agar tercipta hasil yang efisien, cepat dan tepat.",
       type: "website",
