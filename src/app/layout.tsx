@@ -17,8 +17,8 @@ const Sora = SoraFont({
 });
 
 export const metadata: Metadata = {
-  title: "MotoIndo | Motorola Indonesia",
-  description: "MotoIndo | Motorola Indonesia",
+  title: "MotoIndo | HT Motorola Indonesia",
+  description: "MotoIndo | HT Motorola Indonesia",
 };
 
 export default function RootLayout({
