@@ -21,7 +21,7 @@ export default function HomeService() {
   return (
     <div className="inner-wrapper mt-[160px]">
       <h1 className="text-n-900 mb-[40px] text-center text-[2.5rem] font-bold">
-        Layanan fleksible menyesuaikan kebutuhan <br />
+        Layanan fleksibel menyesuaikan kebutuhan <br />
         Anda
       </h1>
       <div className="w-[1040px]">

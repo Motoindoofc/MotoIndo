@@ -16,11 +16,11 @@ import ServiceArticleScrollHandler from "./ServerArticleScrollHandler";
 export async function generateMetadata() {
   return {
     title: "MotoIndo | Motorola Indonesia",
-    description: "Layanan fleksible menyesuaikan kebutuhan Anda",
+    description: "Layanan fleksibel menyesuaikan kebutuhan Anda",
     openGraph: {
       title: "MotoIndo | Motorola Indonesia",
       description:
-        "Layanan fleksible menyesuaikan kebutuhan Anda, Sejak 2008 Motoindo dipercaya dalam komunikasi radio dan keamanan. Kami dapat melayani sesuai kebutuhan anda agar tercipta hasil yang efisien, cepat dan tepat.",
+        "Layanan fleksibel menyesuaikan kebutuhan Anda, Sejak 2008 Motoindo dipercaya dalam komunikasi radio dan keamanan. Kami dapat melayani sesuai kebutuhan anda agar tercipta hasil yang efisien, cepat dan tepat.",
       type: "website",
     },
   };
@@ -35,7 +35,7 @@ export default function Services() {
           <div className="flex w-[1440px] max-w-full items-center justify-between gap-6 sm:flex-col sm:items-start">
             <div className="flex w-[636px] flex-col gap-8 sm:w-auto">
               <p className="text-n-100 mt-[2.25rem] text-[4rem] font-bold leading-tight sm:text-[2rem]">
-                Layanan fleksible menyesuaikan kebutuhan Anda
+                Layanan fleksibel menyesuaikan kebutuhan Anda
               </p>
               <p className="text-n-100 text-[1.5rem] sm:text-[0.875rem]">
                 Sejak 2008 Motoindo dipercaya dalam komunikasi radio dan

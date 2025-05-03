@@ -41,7 +41,7 @@ export default function ServiceAccordion() {
   return (
     <div className="px-[0.75rem] py-[4.5rem]">
       <h1 className="text-n-900 mb-[40px] text-center text-[2.5rem] font-bold sm:text-[2rem]">
-        Layanan fleksible menyesuaikan kebutuhan Anda
+        Layanan fleksibel menyesuaikan kebutuhan Anda
       </h1>
       <div className="flex flex-col gap-4">
         {serviceLists.map((service, i) => {

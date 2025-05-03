@@ -7,7 +7,7 @@ export default function Achievement() {
       name: "Tahun Pengalaman",
     },
     {
-      qty: "11+",
+      qty: "13+",
       name: "Instalasi Proyek",
     },
     {
