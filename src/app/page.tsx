@@ -68,7 +68,7 @@ export default function Home() {
             dan Sensor yang terintegrasi serta komprehensif untuk berbagai
             industri.
           </h2>
-          <Button isGradient={false} customClass="text-[1rem] mt-[48px]" href="https://api.whatsapp.com/send?phone=6285134888834&text=Halo%20Motoindo">
+          <Button isGradient={false} customClass="text-[1rem] mt-[48px]" onClick={() => window.open("https://api.whatsapp.com/send?phone=6285134888834&text=Halo%20Motoindo")}>
             Hubungi Motoindo
           </Button>
           <HeroBackgroundVideo />
