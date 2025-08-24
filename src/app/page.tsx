@@ -58,7 +58,7 @@ export default function Home() {
     <section>
       <Navbar />
       <div className="outer-wrapper">
-        <header className="inner-wrapper mt-[64px] py-[64px]">
+        <header className="inner-wrapper mt-[64px] py-[64px] mb-[80px]">
           <h1 className="text-center text-[4rem] font-bold sm:text-[2rem]">
             Membangun Ekosistem Keamanan{" "}
             <span className="text-b-600">Terintegrasi</span>
