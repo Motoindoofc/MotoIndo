@@ -18,7 +18,7 @@ import HomeService from "./HomeService";
 
 function HeroBackgroundVideo() {
   return (
-    <video autoPlay muted loop>
+    <video autoPlay muted loop className="w-full h-auto object-cover border-0 outline-none">
       <source src="/videos/hero-animation-map.mp4" type="video/mp4" />
     </video>
   );
@@ -26,7 +26,7 @@ function HeroBackgroundVideo() {
 
 function IntegratedBackgroundVideo() {
   return (
-    <video autoPlay muted loop className="aspect-square w-[538px]">
+    <video autoPlay muted loop className="aspect-square w-[538px] object-cover border-0 outline-none">
       <source src="/videos/integrated-animation.mp4" type="video/mp4" />
     </video>
   );
